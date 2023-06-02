@@ -1,0 +1,142 @@
+/* .background-Image {
+    margin-top: 10%;
+    background-color: bisque;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');
+
+
+.container--login {
+    margin-left: 30%;
+}
+
+
+.projectName {
+
+    color: rgb(237, 124, 83);
+    font-size: 110%;
+
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Sansita Swashed', cursive;
+}
+
+fieldset {
+    min-width: 0;
+    padding: 1rem 0;
+    margin: 0px;
+    border: 0;
+
+}
+
+
+
+.form--login {
+
+    /* display: inline-block; */
+    text-align: center;
+    color: #cccccc;
+}
+
+.form--login>fieldset>input[type="email"] {
+    width: 25em;
+
+}
+
+
+
+.label--login {
+    width: 8rem;
+    display: inline-block;
+
+}
+
+.form-control {
+    display: block;
+    width: 94%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #080205;
+    background-clip: padding-box;
+    border: 1px solid #090a0b;
+    border-radius: 0.25rem;
+    -webkit-transition: border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.container--login {
+    text-align: center;
+    width: 500px;
+    height: 10px;
+    /* margin: 50px; */
+    padding: 50px;
+
+}
+
+.loginStyle {
+    margin-left: 100px;
+    /* background-color: rgb(185, 194, 194); */
+
+}
+
+h2 {
+    color: #0e0a0a;
+    text-align: center;
+    margin-left: 60px;
+    font-size: xx-large;
+}
+
+
+
+.form--login {
+    margin-top: 5%;
+    background-position-x: right;
+    z-index: 1;
+    min-height: 100rem;
+    min-width: 45rem;
+    /* background-color: hsla(337, 39%, 85%, 0.971); */
+    /* background-blend-mode: overlay; */
+    /* background-repeat: no-repeat; */
+}
+
+.button--close {
+    position: relative;
+    bottom: -2rem;
+}
+
+
+
+
+.h1 {
+    margin-top: 10px;
+}
+
+/* html{
+  background-image: url("../CakeImages/istockphoto-821258968-612x612.jpeg");
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+  
+} */
+.login-first {
+    padding-top: px;
+}
+
+button {
+    background-color: #d6a8c0;
+    height: calc(1.5em + 0.75rem + 1px);
+    width: 7.75rem;
+    border-radius: 8.25rem;
+}
+
+html {
+    /* background-image: url("../CakeImages/cake-bakery-shop-logo-design-vector-template-illustration-171298118-removebg-preview.png"); */
+    /* background-repeat: no-repeat, repeat; */
+    /* background-size: 18%; */
+    background-color: rgb(206, 222, 238);
+
+
+}
