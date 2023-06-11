@@ -5,28 +5,37 @@ import { useNavigate } from "react-router-dom"
 import "./OrderList.css";
 
 
+
+
+
+
+
+
+
 export const OrderList = () => {
-    const [order, setOrder] = useState([]);
+    const [Order, setOrder] = useState([]);
     const navigate = useNavigate();
 
     const localProjectUser = localStorage.getItem("project_user");
     const projectUserObject = JSON.parse(localProjectUser);
-
+    console.log(projectUserObject.id);
 
     const [needRefresh, setNeedRefresh] = useState(false);
 
 
 
 
-    useEffect(() => {
+    useEffect(() => {//https://localhost:7005/api/Order/GetById/1
 
-        const url = projectUserObject.isStaff ? `http://localhost:8088/order?_expand=cakeShape&_expand=cakeFlavors&_expand=icingType&_expand=size&_expand=design` : `http://localhost:8088/order?_expand=cakeShape&_expand=cakeFlavors&_expand=icingType&_expand=size&_expand=design&customerId=${projectUserObject.id}`
+        const url = projectUserObject.isStaff ? `https://localhost:7005/api/Order/GetAllOrderByAdmin?` : `https://localhost:7005/api/Order/GetById/${projectUserObject.id}`
 
         const fetchData = async () => {
             const response = await fetch(url);
             const orderArray = await response.json();
             setOrder(orderArray);
+            console.log(orderArray);
         };
+
         fetchData();
     }, [needRefresh]);
 
@@ -38,7 +47,7 @@ export const OrderList = () => {
             <button
                 onClick={() => {
                     fetch(
-                        `http://localhost:8088/order/${ordersId}`,
+                        `https://localhost:7005/api/Order/GetAllOrderByAdmin${ordersId}`,
                         {
                             method: "DELETE"
                         }
@@ -63,7 +72,8 @@ export const OrderList = () => {
 
                 </div>
                 <article className="order">
-                    {order.map((Order) => {
+
+                    {Order.map((order) => {
                         return (
                             <section key={order.id} className="orderList">
                                 {/* <p>{order.address} - {order.imageUrl} square feet</p> */}
@@ -88,14 +98,23 @@ export const OrderList = () => {
                                             <p>Email: {order.email}</p>
                                         </div>
                                         <div>
-                                            <p>cakeShape: {order.OrderItems.quantity}</p>
+                                            <p>Quantity: {order.quantity}</p>
                                         </div>
                                         <div>
-                                            <p>cakeFlavors: {order.cakeFlavors.imageUrl}</p>
+                                            <p>Image: {order.imageUrl}</p>
+                                        </div>
+
+                                        <div>
+                                            <p>Name: {order.name}</p>
                                         </div>
                                         <div>
-                                            <p>icingType: {order.icingType.name}</p>
+                                            <p>Category: {order.Category}</p>
                                         </div>
+
+
+
+
+
 
                                     </div>
                                 </div>
@@ -109,7 +128,7 @@ export const OrderList = () => {
           }}
           className="editCake"
           >
-          Edit 
+          Edit
         </button> */}
 
                             </section>

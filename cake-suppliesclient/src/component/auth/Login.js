@@ -31,7 +31,7 @@ export const Login = () => {
           isStaff: LoginData.isStaff,
         })
       );
-      navigate("/bakingSupplies")
+      navigate("/")
     }
 
   }

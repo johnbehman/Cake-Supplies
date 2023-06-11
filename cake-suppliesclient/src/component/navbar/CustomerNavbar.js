@@ -4,6 +4,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
+
 export const CustomerNavbar = () => {
     const navigate = useNavigate();
 
@@ -12,11 +13,7 @@ export const CustomerNavbar = () => {
             <div className="navBarLinks">
 
                 <div className="navBarLinks">
-                    <div className="navbar__item active">
-                        <Link className="navbar__link" to="/order">
-                            Order
-                        </Link>
-                    </div>
+
 
 
                     <div className="navbar__item active">
@@ -25,6 +22,15 @@ export const CustomerNavbar = () => {
                         </Link>
                     </div>
 
+
+                    <div className="SearchName">
+                        <div className="navbar__item active">
+                            <Link className="navbar__link" to="/searchItems">
+                                Search
+
+                            </Link>
+                        </div>
+                    </div>
 
                     <div className="navbar__item active">
                         <Link className="navbar__link" to="/coloring">
@@ -41,19 +47,26 @@ export const CustomerNavbar = () => {
 
                     <div className="navbar__item active">
                         <Link className="navbar__link" to="/bakingSupplies">
-                            Gallary
+                            Baking Supplies
                         </Link>
                     </div>
-
-
 
 
 
                     <div className="navbar__item active">
-                        <Link className="navbar__link" to="/aboutUs">
-                            About Us
+                        <Link className="navbar__link" to="/order">
+                            Order
                         </Link>
                     </div>
+
+
+                    <div className="navbar__item active">
+                        <Link className="navbar__link" to="/aboutUs">
+                            <i class="fa fa-home" aria-hidden="true">About Us</i>
+
+                        </Link>
+                    </div>
+
                     {localStorage.getItem("project_user") ? (
                         <div className="navbar__item navbar__logout">
                             <Link
@@ -66,7 +79,11 @@ export const CustomerNavbar = () => {
                             >
                                 Logout
                             </Link>
+
                         </div>
+
+
+
                     ) : (
                         ""
                     )}

@@ -12,26 +12,80 @@ namespace Cake_Supplies.Repository
         public OrderItemsRepository(IConfiguration configuration) : base(configuration)
         {
         }
-        public void Insert(OrderItems orderItems)
+
+
+
+
+
+
+        //===========================================================
+
+
+        public void AddOrderCustomer(AddOrder newOrder)
+        //public void AddUser(User User)
         {
-            using (SqlConnection conn = Connection)
+            using (var conn = Connection)
             {
                 conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
+                using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"INSERT INTO [dbo].[OrderItems]
-                                                        ([orderId]
-                                                        ,[itemId]
-                                                        ,[quantity])
-                                                        VALUES
-                                                        (@orderId
-                                                        ,@itemId
-                                                        ,@quantity)";
+                    cmd.CommandText = @"INSERT INTO [dbo].[Order]
+                                                                                                 
+                                                   ([customerId]
 
-                    DbUtils.AddParameter(cmd, "@id", orderItems.OrderId);
-                    DbUtils.AddParameter(cmd, "@itemId", orderItems.ItemId);
-                    DbUtils.AddParameter(cmd, "@quantity", orderItems.Quantity);
-                    var Id = (int)cmd.ExecuteScalar();
+                                                   ,[pickUpDate]
+                                                   ,[name ]
+                                                   ,[address]
+                                                   ,[phone]
+                                                   ,[email])
+                                             OUTPUT INSERTED.Id As Orid
+                                             VALUES
+                                                   (
+                                                   @customerId
+                                                        ,@pickUpDate
+                                                        ,@name
+                                                          ,@address
+                                                           ,@phone
+                                                            ,@email) ";                                                                                                           
+                    //DbUtils.AddParameter(cmd, "@UserId", patient.UserId);
+                    // DbUtils.AddParameter(cmd, "@id", NewOrder.Id);
+                    DbUtils.AddParameter(cmd, "@customerId", newOrder.CustomerId);
+                    DbUtils.AddParameter(cmd, "@pickUpDate", newOrder.PickUpDate);
+                    DbUtils.AddParameter(cmd, "@name", newOrder.Name);
+                    DbUtils.AddParameter(cmd, "@address", newOrder.Address);
+                    DbUtils.AddParameter(cmd, "@Phone", newOrder.Phone);
+                    DbUtils.AddParameter(cmd, "@email", newOrder.Email);
+                    //NewOrder.Id = (int)cmd.ExecuteScalar();//needs output inserted.id
+                    var id = (int)cmd.ExecuteScalar();//needs output inserted.id
+                    cmd.CommandText = "";
+
+                    cmd.CommandText = @"INSERT INTO [dbo].[OrderItems]
+                                           (
+                                           [OrderId]
+                                           ,[ItemId]
+                                           ,[Quantity])
+                                     VALUES
+                                           (
+                                           @orderId
+                                           ,@itemId
+                                           ,@quantity )";
+
+                    //DbUtils.AddParameter(cmd, "@UserId", patient.UserId);
+                    // DbUtils.AddParameter(cmd, "@id", NewOrder.Id);
+
+
+
+                    DbUtils.AddParameter(cmd, "@orderId", id);
+
+                    DbUtils.AddParameter(cmd, "@itemId", newOrder.OrderItems.ItemId);
+
+                    DbUtils.AddParameter(cmd, "@quantity", newOrder.OrderItems.Quantity);
+
+                    //NewOrder.Id = (int)cmd.ExecuteScalar();//needs output in
+                    //var OId = (int)cmd.ExecuteScalar();//needs output in
+                   cmd.ExecuteScalar();//needs output in
+
+
 
 
 
@@ -39,5 +93,43 @@ namespace Cake_Supplies.Repository
                 }
             }
         }
+        //===================================================================
+        public void AddOrderItems(AddOrderFromCustomer newOrder)
+        //public void AddUser(User User)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"INSERT INTO [dbo].[ItemsOrder]
+           ([Id]
+           ,[OrderId]
+           ,[ItemId]
+           ,[Quantity])
+     VALUES
+           (
+           ,@orderId
+           ,@itemId
+           ,@quantity )";
+
+                    //DbUtils.AddParameter(cmd, "@UserId", patient.UserId);
+                    // DbUtils.AddParameter(cmd, "@id", NewOrder.Id);
+
+
+
+                    DbUtils.AddParameter(cmd, "@orderId", newOrder.OrderId);
+
+                    DbUtils.AddParameter(cmd, "@itemId", newOrder.ItemId);
+
+                    DbUtils.AddParameter(cmd, "@quantity", newOrder.Quantity);
+                    
+                    //NewOrder.Id = (int)cmd.ExecuteScalar();//needs output inserted.id
+                }
+            }
+        }
+
+
+
     }
 }

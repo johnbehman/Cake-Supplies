@@ -39,6 +39,9 @@ export const BakingSupplies = () => {
                                         <img className="baking-sppl" src={bakingSupplies.imageUrl} alt="Supplies" />
 
                                     </div>
+                                    <div>Name: {bakingSupplies.name}</div>
+                                    <div>Description: {bakingSupplies.description}</div>
+                                    <div>Category: {bakingSupplies.category}</div>
                                 </section>
                             }
                         )

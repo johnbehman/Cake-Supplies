@@ -4,6 +4,7 @@ namespace Cake_Supplies.Repository
 {
     public interface IOrderItemsRepository
     {
-        void Insert(OrderItems orderItems);
+        void AddOrderCustomer(AddOrder newOrder);
+        void AddOrderItems(AddOrderFromCustomer newOrder);
     }
 }
