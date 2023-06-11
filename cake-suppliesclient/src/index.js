@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { CakeSuppliesApp } from './component/views/CakeSuppliesApp';
 
+
 const container = document.getElementById("root")
 const root = createRoot(container)
 root.render(

@@ -11,8 +11,87 @@ namespace Cake_Supplies.Repository
         public ItemsRepository(IConfiguration configuration) : base(configuration)
         {
         }
+        //=============================================
+        //public List<Items> GetAllItems()
+        //{
+        //    using (var conn = Connection)
+        //    {
+        //        conn.Open();
 
+        //        using (var cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = @"SELECT   [id]
+        //                                            ,[imageUrl]
+        //                                            ,[name]
+        //                                            ,[description]
+        //                                            ,[Category]
+        //                                            FROM [dbo].[items]
 
+        //                                           ";
+
+        //            var reader = cmd.ExecuteReader();
+        //            Items items = null;
+        //            while (reader.Read())
+        //            {
+        //                var items = new Items()
+        //                {
+        //                    Id = DbUtils.GetInt(reader, "Id"),
+        //                    ImageUrl = DbUtils.GetString(reader, "imageUrl"),
+        //                    Name = DbUtils.GetString(reader, "name"),
+        //                    Description = DbUtils.GetString(reader, "description"),
+        //                    Category = DbUtils.GetString(reader, "category")
+
+        //                };
+        //                //var test = user;
+        //                item.Add(items);
+        //            }
+        //            conn.Close();
+        //            return item;
+        //        }
+        //    }
+        //}
+
+        //===============================================
+        public Items SearchItemsByName(string Name)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT [id] AS ItemsId
+      ,[imageUrl]
+      ,[name]
+      ,[description]
+      ,[category]
+  FROM [dbo].[Items]
+  where Items.name = @name";
+
+                    DbUtils.AddParameter(cmd, "@name", Name);
+                    var reader = cmd.ExecuteReader();
+                    Items items = null;
+                    while (reader.Read())
+                    {
+                        if (items == null)
+                        {
+                            items = new Items()
+                            {
+                                Id = DbUtils.GetInt(reader, "ItemsId"),
+
+                                Name = DbUtils.GetString(reader, "name"),
+                                Description = DbUtils.GetString(reader, "description"),
+                                ImageUrl = DbUtils.GetString(reader, "imageUrl"),
+                                Category = DbUtils.GetString(reader, "category"),
+                            };
+                        }
+                    }
+                    reader.Close();
+                    return items;
+
+                }
+            }
+        }
+//======================================================================
         public List<Items> GetAllItemsByColoring()
         {
             using (var conn = Connection)

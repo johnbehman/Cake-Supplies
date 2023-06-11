@@ -34,10 +34,15 @@ export const DecoratingTools = () => {
                             (decoratingTools) => {
                                 return <section key={decoratingTools.id} >
                                     {/* <p>{gallary.address} - {gallary.imageUrl} square feet</p> */}
+                                    <div className="decoratinBox">
+                                        <div>
+                                            <img className="decorating" src={decoratingTools.imageUrl} alt="DecoratingTools" />
 
-                                    <div>
-                                        <img className="decorating" src={decoratingTools.imageUrl} alt="DecoratingTools" />
+                                        </div>
 
+                                        <div>Name: {decoratingTools.name}</div>
+                                        <div>Description: {decoratingTools.description}</div>
+                                        <div>Category: {decoratingTools.category}</div>
                                     </div>
                                 </section>
                             }

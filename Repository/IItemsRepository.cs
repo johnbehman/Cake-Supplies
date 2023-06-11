@@ -13,5 +13,6 @@ namespace Cake_Supplies.Repository
         void InsertItem(Items item);
         void Update(int id, Items item);
         void Delete(int id);
+        Items SearchItemsByName(string Name);
     }
 }

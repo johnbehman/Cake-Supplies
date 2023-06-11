@@ -93,9 +93,6 @@ public class UsersRepository : BaseRepository
     }
 
 
-
-
-
     //===============================================================
 
 
@@ -123,11 +120,6 @@ public class UsersRepository : BaseRepository
                         Name = DbUtils.GetString(reader, "Name"),
                         Email = DbUtils.GetString(reader, "Email"),
                         IsStaff = DbUtils.GetBoolean(reader, "IsStaff")
-
-
-
-
-
 
                     };
                 }

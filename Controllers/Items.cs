@@ -47,7 +47,7 @@ namespace Cake_Supplies.Controllers
         {
             return Ok(_itemsRepository.GetAllItemsByEdibles());
         }
-            //======================================================
+        //======================================================
 
 
 
@@ -55,62 +55,79 @@ namespace Cake_Supplies.Controllers
 
 
 
-            [HttpPost("AddItems")]
-            public IActionResult AddItems(Items item)
-            {
-                _itemsRepository.InsertItem(item);
-               // return Created("/api/item/" + item.Id, item);
+        [HttpPost("AddItems")]
+        public IActionResult AddItems(Items item)
+        {
+            _itemsRepository.InsertItem(item);
+            // return Created("/api/item/" + item.Id, item);
             return Created("", item);
 
         }
 
 
         [HttpGet("GetById/{id}")]
-            public IActionResult GetById(int id)
+        public IActionResult GetById(int id)
+        {
+            if (id == null)
             {
-                if (id == null)
-                {
-                    return BadRequest();
-                }
-                Items item = (Items)_itemsRepository.GetById(id);
-                if (item == null)
-                {
-                    return NotFound($"{id} Not Found!");
-                }
-                return Ok(item);
-
+                return BadRequest();
             }
-            //======================================
-
-            [HttpPut("UpdateItems/{id}")]
-            public IActionResult UpdateItems(int id, Items item)
+            Items item = (Items)_itemsRepository.GetById(id);
+            if (item == null)
             {
-                if (id != item.Id)
-                {
-                    return BadRequest();
-                }
-                _itemsRepository.Update(id, item);
-                return NoContent();
+                return NotFound($"{id} Not Found!");
             }
+            return Ok(item);
 
+        }
+        //======================================
 
-
-
-
-
-            [HttpDelete("DeleteItems/{id}")]
-            public IActionResult Delete(int id)
+        [HttpPut("UpdateItems/{id}")]
+        public IActionResult UpdateItems(int id, Items item)
+        {
+            if (id != item.Id)
             {
-                Items user = (Items)_itemsRepository.GetById(id);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-                _itemsRepository.Delete(user.Id);
-                return NoContent();
+                return BadRequest();
             }
+            _itemsRepository.Update(id, item);
+            return NoContent();
+        }
 
 
-        
-    } 
+
+
+
+
+        [HttpDelete("DeleteItems/{id}")]
+        public IActionResult Delete(int id)
+        {
+            Items user = (Items)_itemsRepository.GetById(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            _itemsRepository.Delete(user.Id);
+            return NoContent();
+        }
+
+        [HttpGet("SearchItemsByName")]
+        public IActionResult SearchItemsById(string Name)
+        {
+            if (Name == null)
+            {
+                return BadRequest();
+            }
+            Items items = _itemsRepository.SearchItemsByName(Name);
+            if (items == null)
+            {
+                return NotFound($"{Name} Not Found!");
+            }
+            return Ok(items);
+
+
+
+        }
+
+
+    }
 }

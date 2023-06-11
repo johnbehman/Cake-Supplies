@@ -1,6 +1,9 @@
-/* baking-sppl {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 150px;
-} */
+.baking-sppl {
+    background-color: rgb(231, 238, 186);
+    border: 2px dotted fuchsia;
+    color: black;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    width: 200px;
+    height: 200px;
+}
