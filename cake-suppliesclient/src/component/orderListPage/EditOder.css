@@ -1,0 +1,34 @@
+.form-group {
+    margin-left: 300px;
+    font-size: larger;
+}
+
+.btn {
+    margin-left: 300px;
+    margin-top: 10px;
+    color: rgb(71, 60, 122);
+    background-color: rgb(230, 230, 153);
+}
+
+.cakeForm {
+    background-color: rgb(208, 203, 195);
+}
+
+input[type=text] {
+    font-size: medium;
+}
+
+
+
+input {
+    margin-left: 1rem;
+    width: 50%;
+    height: 2rem;
+}
+
+select {
+    margin-left: 1rem;
+
+    width: 15%;
+    height: 2rem;
+}

@@ -135,46 +135,31 @@ namespace Cake_Supplies.Repository
 
                             using (var cmd = conn.CreateCommand())
                             {
-                                cmd.CommandText = @"
-                                            INSERT INTO [dbo].[User]
-                                            AS CustomerId
-                                                   ([Type]
-                                                   ,[Img]
-                                                   ,[FirstName]
-                                                   ,[LastName]
-                                                   ,[Email])
-                                             OUTPUT INSERTED.Id As UID
-                                             VALUES
-                                                   (@Type
-                                                   ,@Img
-                                                   ,@FirstName
-                                                   ,@LastName
-                                                   ,@Email) 
-        AS OrderId
+                                cmd.CommandText = @"SELECT 
+
+
+[Order].[id]  AS OrderId
+
+
            ,[Order].[customerId] 
            ,[Order].[pickUpDate] 
            ,[Order].[name] AS customerName
            ,[Order].[address] 
            ,[Order].[phone] 
            ,[Order].[email] 
+		
         ,[OrderItems].[Id]
         AS OrderItemsId
            ,[OrderItems].[OrderId] 
            ,[OrderItems].[itemId]  
            ,[OrderItems].[quantity] 
-        ,[Items].[id]
-        AS ItemsId
-           ,[Items].[imageUrl] 
-           ,[Items].[name] 
-           ,[Items].[Category]
-        FROM[dbo].[Users]
 
-        INNER JOIN[Order] ON[Users].Id = [Order].CustomerId
-       left JOIN[OrderItems] ON[Order].Id = [OrderItems].OrderId
-        LEFT JOIN[Items] ON[OrderItems].itemId = [Items].Id";
+	 FROM [Order]
 
 
-                                var reader = cmd.ExecuteReader();
+		 ";
+
+                    var reader = cmd.ExecuteReader();
                                 List<CustomerOrder> customerOrders = new List<CustomerOrder>();
                                 while (reader.Read())
                                 {
@@ -187,13 +172,10 @@ namespace Cake_Supplies.Repository
                                         Address = DbUtils.GetString(reader, "address"),
                                         Phone = DbUtils.GetString(reader, "phone"),
                                         Email = DbUtils.GetString(reader, "Email"),
-                                        Name = DbUtils.GetString(reader, "name"),
-                                        Quantity = DbUtils.GetInt(reader, "quantity")
-
-
-
-
                                     };
+
+
+
                                     customerOrders.Add(customer);
 
                                     //var test = user;

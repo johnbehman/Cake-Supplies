@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 export const EditOrder = () => {
 
     const [itemOrder, setItemOrder] = useState({
@@ -20,6 +19,7 @@ export const EditOrder = () => {
     const { customerId } = useParams();
     const navigate = useNavigate();
 
+
     const localProjectUser = localStorage.getItem("project_user");
     const projectUserObject = JSON.parse(localProjectUser);
 
@@ -28,9 +28,7 @@ export const EditOrder = () => {
     useEffect(() => {
         console.log(projectUserObject.id);
         fetch(
-            `https://localhost:7005/api/Order/GetAllOrderByAdmin
-            id=${customerId}`
-        )
+            `https://localhost:7005/api/Order/id=${customerId}`)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data)
@@ -45,7 +43,7 @@ export const EditOrder = () => {
 
         // Edit
 
-        return fetch(`https://localhost:7005/api/Order${customerId.id}`, {
+        return fetch(`https://localhost:7005/api/Order${itemOrder.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -147,90 +145,12 @@ export const EditOrder = () => {
                 </div>
             </fieldset>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="icingType">:</label>
-                    <select
-                        value={itemOrder.icingTypeId}
-                        onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.icingTypeId = parseInt(evt.target.value);
-                            setItemOrder(copy);
-                        }}
-                    >
-                        <option value="0"></option>
-                        <option value="1">White vanilla Buttercream Frosting</option>
-                        <option value="2"> chocolate Buttercream Frosting</option>
-                        <option value="3">Fondant</option>
-                        <option value="4">Cream Cheese Frosting</option>
-                    </select>
-                </div>
-            </fieldset>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="design">Design:</label>
-                    <select
-                        value={itemOrder.designId}
-                        onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.designId = parseInt(evt.target.value);
-                            setItemOrder(copy);
-                        }}
-                    >
-                        <option value="0"></option>
-                        <option value="1">For Graduation</option>
-                        <option value="2">For Bithday</option>
-                        <option value="3">baby shower</option>
-                        <option value="4">For Wedding</option>
-                    </select>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="cakeShape">Cake Shape:</label>
-                    <select
-                        value={itemOrder.cakeShapeId}
-                        onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.cakeShapeId = parseInt(evt.target.value);
-                            setItemOrder(copy);
-                        }}
-                    >
-                        <option value="0"></option>
-                        <option value="1">round</option>
-                        <option value="2">Square</option>
-                        <option value="3">Custom Cake</option>
-                    </select>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="size">Size:</label>
-                    <select
-                        value={itemOrder.sizeId}
-                        onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.sizeId = parseInt(evt.target.value);
-                            setItemOrder(copy);
-                        }}
-                    >
-                        <option value="0"></option>
-                        <option value="1">1/4 sheet</option>
-                        <option value="2">1/2 sheet</option>
-                        <option value="3">full sheet</option>
-                        <option value="4">3 tire wedding cake</option>
-                        <option value="5">5 tire wedding cake</option>
-                    </select>
-                </div>
-            </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary"
             >
-                Submit Cake orders
+                Submit  orders
             </button>
         </form>
     );

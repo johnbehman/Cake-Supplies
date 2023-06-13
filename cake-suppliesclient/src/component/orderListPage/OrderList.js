@@ -105,7 +105,7 @@ export const OrderList = () => {
                                         </div>
 
                                         <div>
-                                            <p>Name: {order.name}</p>
+                                            <p>Name: {order.customerName}</p>
                                         </div>
                                         <div>
                                             <p>Category: {order.Category}</p>
