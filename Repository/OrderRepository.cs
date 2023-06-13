@@ -33,17 +33,19 @@ namespace Cake_Supplies.Repository
 
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"SELECT o.id
+                    cmd.CommandText = @"SELECT o.id AS OrderId
                                                , o.[customerId]
                                                 , o.[pickUpDate]
-                                                , o.[name] As customerName
-                                                , o.[address]
-                                                  ,o.[phone]
-                                                  ,o.[email]
 	                                              ,oi.quantity
 	                                              ,i.imageUrl
-	                                              ,i.[name]
+	                                              ,i.[name] AS ItemName
+												  ,u.[name] AS customerName
+                                                     ,u.[phone]
+                                                     ,u.[email]
+                                                     ,u.[address]
                                               FROM [dbo].[Order] o
+											  join [dbo].Users u
+											  on u.id = o.customerId
                                               LEFT JOIN [OrderItems] oi
                                               ON [oi].orderId = [o].id
                                               LEFT JOIN [Items] i
@@ -57,23 +59,24 @@ namespace Cake_Supplies.Repository
                     {
                         var customer = new CustomerOrder()
                         {
-                            Id = DbUtils.GetInt(reader, "Id"),
+                            OrderId = DbUtils.GetInt(reader, "OrderId"),
                             CustomerId = DbUtils.GetInt(reader, "customerId"),
                             PickUpDate = DbUtils.GetDateTime(reader, "pickUpDate"),
                             CustomerName = DbUtils.GetString(reader, "customerName"),
                             Address = DbUtils.GetString(reader, "address"),
                             Phone = DbUtils.GetString(reader, "phone"),
-                            Email = DbUtils.GetString(reader, "Email"),
+                            Email = DbUtils.GetString(reader, "email"),
                             ImageUrl = DbUtils.GetString(reader, "imageUrl"),
-                            Name = DbUtils.GetString(reader, "name"),
-                            Quantity = DbUtils.GetInt(reader, "quantity")
+                            ItemName = DbUtils.GetString(reader, "ItemName"),
+                            Quantity = DbUtils.GetNullableInt(reader, "quantity")
                         };
                         customerOrders.Add(customer);
 
-                        //var test = user;
 
-                        return customerOrders;
                     }
+                        var test = customerOrders;
+                        return customerOrders;
+
                     conn.Close();
                 }
             }

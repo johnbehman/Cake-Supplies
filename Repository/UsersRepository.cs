@@ -22,13 +22,21 @@ public class UsersRepository : BaseRepository
             conn.Open();
 
             using (var cmd = conn.CreateCommand())
-            {
-                cmd.CommandText = @"SELECT    [id]
-                                             ,[name]
-                                             ,[email]
-                                             ,[isStaff]
-                                             FROM [dbo].[Users]";
 
+
+
+
+            {
+                cmd.CommandText = @"  
+
+                                        SELECT  [id]
+                                              ,[name]
+                                              ,[email]
+                                              ,[isStaff]
+                                              ,[phone]
+                                              ,[address]
+                                          FROM .[dbo].[Users]";
+     
 
                 var reader = cmd.ExecuteReader();
                 var user = new List<Users>();
@@ -38,11 +46,12 @@ public class UsersRepository : BaseRepository
                     {
                         Id = DbUtils.GetInt(reader, "Id"),
                         Name = DbUtils.GetString(reader, "Name"),
+                        Phone = DbUtils.GetString(reader,"Phone"),
+                        Address = DbUtils.GetString(reader,"Address"),
                         Email = DbUtils.GetString(reader, "Email"),
-                        IsStaff = DbUtils.GetBoolean(reader, "IsStaff")
+                        IsStaff = DbUtils.GetNullableBoolean(reader, "IsStaff")
 
                     };
-                    //var test = user;
                     user.Add(users);
                 }
                 conn.Close();
@@ -59,10 +68,12 @@ public class UsersRepository : BaseRepository
             conn.Open();
             using (var cmd = conn.CreateCommand())
             {
-                cmd.CommandText = @"SELECT [id]
-                                          ,[name]
-                                          ,[email]
-                                          ,[isStaff]
+                cmd.CommandText = @"SELECT  [id]
+                                              ,[name]
+                                              ,[email]
+                                              ,[isStaff]
+                                              ,[phone]
+                                              ,[address]
                                       FROM [dbo].[Users]
                                         WHERE Email = @email";
                 cmd.Parameters.AddWithValue("@email", email);
@@ -75,14 +86,10 @@ public class UsersRepository : BaseRepository
                     {
                         Id = DbUtils.GetInt(reader, "Id"),
                         Name = DbUtils.GetString(reader, "Name"),
+                        Phone = DbUtils.GetString(reader, "Phone"),
+                        Address = DbUtils.GetString(reader, "Address"),
                         Email = DbUtils.GetString(reader, "Email"),
-                        IsStaff = DbUtils.GetBoolean(reader, "IsStaff")
-
-
-
-
-
-
+                        IsStaff = DbUtils.GetNullableBoolean(reader, "IsStaff")
                     };
 
                     return user;
@@ -104,22 +111,27 @@ public class UsersRepository : BaseRepository
             using (var cmd = conn.CreateCommand())
             {
                 cmd.CommandText = @"SELECT [id]
-                                          ,[name]
-                                          ,[email]
-                                          ,[isStaff]
+                                              ,[name]
+                                              ,[email]
+                                              ,[isStaff]
+                                              ,[phone]
+                                              ,[address]
                                       FROM [dbo].[Users]
                                        WHERE Id = @id";
                 cmd.Parameters.AddWithValue("@id", Id);
                 SqlDataReader reader = cmd.ExecuteReader();
-                Users user = null;
+                Users user = new Users();
+                
                 if (reader.Read())
                 {
                     user = new Users()
                     {
                         Id = DbUtils.GetInt(reader, "Id"),
                         Name = DbUtils.GetString(reader, "Name"),
+                        Phone = DbUtils.GetString(reader, "Phone"),
+                        Address = DbUtils.GetString(reader, "Address"),
                         Email = DbUtils.GetString(reader, "Email"),
-                        IsStaff = DbUtils.GetBoolean(reader, "IsStaff")
+                        IsStaff = DbUtils.GetNullableBoolean(reader, "IsStaff")
 
                     };
                 }
