@@ -11,8 +11,7 @@ import logo from "../images/logo.png";
 import { OrderList } from "../orderListPage/OrderList";
 import { AddOrder } from "../orderListPage/AddOrder";
 import { EditOrder } from "../orderListPage/EditOrder";
-import { SearchItems } from "../homePage/SearchItems";
-
+import { CustomerSearch } from "../prouctsPage/CustomerSearch";
 
 
 
@@ -34,7 +33,7 @@ export const CustomerView = () => {
           }
         >
           {/* <Route path="/" element={<Home />} /> */}
-          <Route path="searchItems" element={<SearchItems />} />
+          <Route path="searchItems" element={<CustomerSearch />} />
 
           <Route path="/" element={<AboutUs />} />
           <Route path="aboutUs" element={<AboutUs />} />
@@ -46,7 +45,10 @@ export const CustomerView = () => {
           <Route path="order/create" element={<AddOrder />} />
           <Route path="bakingSupplies" element={<BakingSupplies />} />
           <Route path="edibles" element={<Edibles />} />
-          <Route path="order/:ordersId" element={<EditOrder />} />
+          <Route path="order/:orderId" element={<EditOrder />} />
+          <Route path="editOrder" element={<EditOrder />} />
+
+
 
 
 

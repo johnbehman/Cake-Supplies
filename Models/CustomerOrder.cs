@@ -17,6 +17,20 @@ namespace Cake_Supplies.Models
         public string ImageUrl { get; set; }
         public int Quantity { get; set; }
         public string Name { get; set; }
+        public AllOrder OrderItems { get; set; }
+
+    }
+
+    public class AllOrder
+    {
+
+         public int Id { get; set; }
+        public int OrderId { get; set; }
+        public int ItemId { get; set; }
+        public int Quantity { get; set; }
+        // public List<Items> Items { get; set; }
+
+
     }
 }
   

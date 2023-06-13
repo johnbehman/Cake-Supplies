@@ -46,7 +46,7 @@ export const AddOrder = () => {
             `https://localhost:7005/AddOrder`,
             fetchOptions
         );
-        // navigate("/books");
+        navigate("/orderList");
         const responseJson = await response.json();
         return responseJson;
     };
@@ -155,6 +155,12 @@ export const AddOrder = () => {
                     />
                 </div>
             </fieldset>
+
+
+
+
+
+
 
             <fieldset>
                 <div className="form-group">

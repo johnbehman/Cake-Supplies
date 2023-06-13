@@ -1,69 +1,68 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import React from "react";
-import { SearchItems } from "../homePage/SearchItems";
-
+import { SearchItemCustomer } from "../../API/SearchAPI";
 
 export const CustomerSearch = () => {
-    const [items, setItems] = useState([])
+    const [product, setProduct] = useState([])
+    const [names, setNames] = useState(null)
+
+
     const navigate = useNavigate()
 
-    const localProjectUser = localStorage.getItem("project_user");
-    const projectUserObject = JSON.parse(localProjectUser);
 
 
-    useEffect(() => {
-        fetch(`https://localhost:7005/api/Items/SearchItemsByName?Name=${projectUserObject.name}`)
+    const GetSearchItems = async (obj) => {
+        if (obj === "") {
+            let PublicFilesData = await SearchItemCustomer();
+            setProduct(PublicFilesData)
+            console.log(PublicFilesData);
+        } else {
+            let SearchedFiles = await SearchItemCustomer(obj)
+            setProduct(SearchedFiles)
+            console.log(SearchedFiles);
 
-
-            .then((response) => response.json())
-            .then((itemArray) => {
-                setItems(itemArray);
-                console.log(itemArray)
-            });
-    }, []);
-
-
-    const fetchSearchByItems = (e) => {
-        fetch(`https://localhost:7005/api/Items/SearchItemsByName?Name=${e}`)
-            .then((response) => response.json())
-            .then((itemsArray) => {
-                setItems(itemsArray);
-                console.log(itemsArray)
-            });
+        }
     }
 
 
 
-
-
-
-
     return (
-        <article className="UserBooksPageContainer">
-            <SearchItems searchClicked={e => fetchSearchByItems(e)} />
-
-            {items.map((item) => {
-                return (
-                    <section className="UserBooksContainer">
-
-                        <img src={item.imageUrl} />
-                        <div>Name: {item.name}</div>
-
-                        <div>Category : ${item.category}</div>
+        <>
 
 
+            <article className="UserBooksPageContainer">
+                {/* <SearchItems searchClicked={e => GetSearchItems(e)} /> */}
 
-                        <div>Description : ${item.description}</div>
+                <div className="SearchUserBookContainer">
+                    <input
+                        required
+                        autoFocus
+                        type="text"
+                        className="SearchUserBookBar"
+                        // value={searchItems}
+                        onChange={e => setProduct(e.target.value)}
+                        placeholder="Search by Name Items"
+                    />
+                    <div className="searchButtonUserBooks" onClick={() => GetSearchItems(names)}>Search</div>
+                </div>
 
-                        {/* <div className="AdminUserBooksEditButtonContainer" onClick={() => navigate(`/searchItems/${items.id}`)}>
-                        <div className="AdminUserBooksEditButton">Edit</div>
-                    </div> */}
+                {product && product.map((item) => {
+                    (
+                        <section className="UserBooksContainer">
+                            <img src={item.imageUrl} alt="item" />
+                            <div>Name: {item.name}</div>
+                            <div>Category : {item.category}</div>
+                            <div>Description : {item.description}</div>
+                        </section>
+                    );
+                })}
 
-                    </section>
 
-                );
-            })}
-        </article>
+
+
+            </article>
+        </>
     );
+
 }
