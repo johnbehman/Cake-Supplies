@@ -34,22 +34,16 @@ namespace Cake_Supplies.Repository
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"SELECT o.id AS OrderId
-                                               , o.[customerId]
-                                                , o.[pickUpDate]
-	                                              ,oi.quantity
-	                                              ,i.imageUrl
-	                                              ,i.[name] AS ItemName
-												  ,u.[name] AS customerName
-                                                     ,u.[phone]
-                                                     ,u.[email]
-                                                     ,u.[address]
-                                              FROM [dbo].[Order] o
-											  join [dbo].Users u
-											  on u.id = o.customerId
-                                              LEFT JOIN [OrderItems] oi
-                                              ON [oi].orderId = [o].id
-                                              LEFT JOIN [Items] i
-                                              ON [oi].ItemId= [i].Id
+                                             , o.[customerId]
+                                             , o.[pickUpDate]
+                                                    ,u.[phone]
+                                                    ,u.[email]
+                                                    ,u.[address]
+                                                     ,u.[name] as CustomerName
+                                            FROM [dbo].[Order] o
+										  join [dbo].Users u
+								  on u.id = o.customerId
+
                                               WHERE o.customerId =@customerId";
                     DbUtils.AddParameter(cmd, "@customerId", customerId);
 
@@ -66,133 +60,93 @@ namespace Cake_Supplies.Repository
                             Address = DbUtils.GetString(reader, "address"),
                             Phone = DbUtils.GetString(reader, "phone"),
                             Email = DbUtils.GetString(reader, "email"),
-                            ImageUrl = DbUtils.GetString(reader, "imageUrl"),
-                            ItemName = DbUtils.GetString(reader, "ItemName"),
-                            Quantity = DbUtils.GetNullableInt(reader, "quantity")
                         };
                         customerOrders.Add(customer);
 
 
                     }
-                        var test = customerOrders;
-                        return customerOrders;
+                    var test = customerOrders;
+                    return customerOrders;
 
                     conn.Close();
                 }
             }
             return null;
         }
-       //===========================================================
+
+        //==========================================================
+        public List<CustomerOrder> GetAllOrdersByAdmin()
+        {
 
 
-        //public void AddOrderCustomer(AddOrder NewOrder)
-        ////public void AddUser(User User)
-        //{
-        //    using (var conn = Connection)
-        //    {
-        //        conn.Open();
-        //        using (var cmd = conn.CreateCommand())
-        //        {
-        //            cmd.CommandText = @"INSERT INTO [dbo].[Order]
-        //                                           (
-        //                                           ,[CustomerId]
-        //                                           ,[PickUpDate]
-        //                                           ,[Name ]
-        //                                           ,[Address]
-        //                                           ,[Phone]
-        //                                           ,[Email])
-        //                                     OUTPUT INSERTED.Id As Order
-        //                                     VALUES
-        //                                           (,@customerId
-        //                                            ,@picUpDate
-        //                                            ,@name
-        //                                            ,@Address
-        //                                            ,@phone
-        //                                            ,@email) ";
-                                                                                                                                  
-        //            //DbUtils.AddParameter(cmd, "@OrderId", .UserId);
-        //            // DbUtils.AddParameter(cmd, "@id", NewOrder.Id);
-            
-        //            DbUtils.AddParameter(cmd, "@customerId", NewOrder.CustomerId);
-        //            DbUtils.AddParameter(cmd, "@picUpDate", NewOrder.PickUpDate);
-        //            DbUtils.AddParameter(cmd, "@name", NewOrder.Name);
-        //            DbUtils.AddParameter(cmd, "@Address", NewOrder.Address);
-        //            DbUtils.AddParameter(cmd, "@Phone", NewOrder.Phone);
-        //            DbUtils.AddParameter(cmd, "@email", NewOrder.Email);
-        //            //NewOrder.id = (int)cmd.ExecuteScalar();//needs output inserted.id
-        //            var id = (int)cmd.ExecuteScalar();//needs output inserted.id
+            using (var conn = Connection)
+            {
+                conn.Open();
 
-        //        }
-        //    }
-        //}
-
-                
-                    //==========================================================
-                    public List<CustomerOrder> GetAllOrdersByAdmin()
-                    {
-
-
-                        using (var conn = Connection)
-                        {
-                            conn.Open();
-
-                            using (var cmd = conn.CreateCommand())
-                            {
-                                cmd.CommandText = @"SELECT 
-
-
-[Order].[id]  AS OrderId
-
-
-           ,[Order].[customerId] 
-           ,[Order].[pickUpDate] 
-           ,[Order].[name] AS customerName
-           ,[Order].[address] 
-           ,[Order].[phone] 
-           ,[Order].[email] 
-		
-        ,[OrderItems].[Id]
-        AS OrderItemsId
-           ,[OrderItems].[OrderId] 
-           ,[OrderItems].[itemId]  
-           ,[OrderItems].[quantity] 
-
-	 FROM [Order]
-
-
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT o.id AS OrderId
+                                             , o.[customerId]
+                                             , o.[pickUpDate]
+                                                    ,u.[phone]
+                                                    ,u.[email]
+                                                    ,u.[address]
+                                                     ,u.[name] as CustomerName
+                                            FROM [dbo].[Order] o
+										  join [dbo].Users u
+								  on u.id = o.customerId
 		 ";
 
                     var reader = cmd.ExecuteReader();
-                                List<CustomerOrder> customerOrders = new List<CustomerOrder>();
-                                while (reader.Read())
-                                {
-                                    var customer = new CustomerOrder()
-                                    {
-                                        //Id = DbUtils.GetInt(reader, "Id"),
-                                        CustomerId = DbUtils.GetInt(reader, "customerId"),
-                                        PickUpDate = DbUtils.GetDateTime(reader, "pickUpDate"),
-                                        CustomerName = DbUtils.GetString(reader, "customerName"),
-                                        Address = DbUtils.GetString(reader, "address"),
-                                        Phone = DbUtils.GetString(reader, "phone"),
-                                        Email = DbUtils.GetString(reader, "Email"),
-                                    };
+                    List<CustomerOrder> customerOrders = new List<CustomerOrder>();
+                    while (reader.Read())
+                    {
+                        var customer = new CustomerOrder()
+                        {
+                            OrderId = DbUtils.GetInt(reader, "OrderId"),
+                            CustomerId = DbUtils.GetInt(reader, "customerId"),
+                            PickUpDate = DbUtils.GetDateTime(reader, "pickUpDate"),
+                            CustomerName = DbUtils.GetString(reader, "customerName"),
+                            Address = DbUtils.GetString(reader, "address"),
+                            Phone = DbUtils.GetString(reader, "phone"),
+                            Email = DbUtils.GetString(reader, "email"),
+                        };
+                        customerOrders.Add(customer);
 
 
-
-                                    customerOrders.Add(customer);
-
-                                    //var test = user;
-
-                                    return customerOrders;
-                                }
-                                conn.Close();
-                            }
-                        }
-                        return null;
                     }
-                    //===============================================================
-
-
+                    var test = customerOrders;
+                    return customerOrders;
+                    conn.Close();
                 }
             }
+            return null;
+        }
+        //=========================GitOrderDetailsByOrderId======================================
+        //SELECT
+        //                        o.id AS OrderId
+        //                       , o.[pickUpDate]
+
+        //                          , oi.quantity
+
+        //                           , i.imageUrl
+
+        //                            , i.[name] AS ItemName
+
+        //                            , i.description
+        //                      FROM [dbo].[Order] o
+        //                      LEFT JOIN[OrderItems] oi
+
+        //                       ON[oi].orderId = [o].id
+
+        //                       LEFT JOIN [Items] i
+        //                       ON [oi].ItemId= [i].Id
+
+        //                        WHERE o.id = 3
+
+        //======================================================================
+
+
+    }
+}
 

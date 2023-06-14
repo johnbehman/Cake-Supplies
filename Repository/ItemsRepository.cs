@@ -2,6 +2,7 @@
 using Cake_Supplies.Models;
 using Cake_Supplies.Utils.cs;
 using Microsoft.Data.SqlClient;
+using System.Xml.Linq;
 
 
 namespace Cake_Supplies.Repository
@@ -11,45 +12,7 @@ namespace Cake_Supplies.Repository
         public ItemsRepository(IConfiguration configuration) : base(configuration)
         {
         }
-        //=============================================
-        //public List<Items> GetAllItems()
-        //{
-        //    using (var conn = Connection)
-        //    {
-        //        conn.Open();
 
-        //        using (var cmd = conn.CreateCommand())
-        //        {
-        //            cmd.CommandText = @"SELECT   [id]
-        //                                            ,[imageUrl]
-        //                                            ,[name]
-        //                                            ,[description]
-        //                                            ,[Category]
-        //                                            FROM [dbo].[items]
-
-        //                                           ";
-
-        //            var reader = cmd.ExecuteReader();
-        //            Items items = null;
-        //            while (reader.Read())
-        //            {
-        //                var items = new Items()
-        //                {
-        //                    Id = DbUtils.GetInt(reader, "Id"),
-        //                    ImageUrl = DbUtils.GetString(reader, "imageUrl"),
-        //                    Name = DbUtils.GetString(reader, "name"),
-        //                    Description = DbUtils.GetString(reader, "description"),
-        //                    Category = DbUtils.GetString(reader, "category")
-
-        //                };
-        //                //var test = user;
-        //                item.Add(items);
-        //            }
-        //            conn.Close();
-        //            return item;
-        //        }
-        //    }
-        //}
 
         //===============================================
         public Items SearchItemsByName(string Name)
@@ -60,12 +23,14 @@ namespace Cake_Supplies.Repository
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"SELECT [id] AS ItemsId
-      ,[imageUrl]
-      ,[name]
-      ,[description]
-      ,[category]
-  FROM [dbo].[Items]
-  where Items.name = @name";
+                                      ,[imageUrl]
+                                      ,[name]
+                                      ,[description]
+                                      ,[category]
+                                  FROM [dbo].[Items]
+                                  where Items.name = @name";
+                    // where Items.name = @name";
+
 
                     DbUtils.AddParameter(cmd, "@name", Name);
                     var reader = cmd.ExecuteReader();
@@ -91,7 +56,7 @@ namespace Cake_Supplies.Repository
                 }
             }
         }
-//======================================================================
+        //======================================================================
         public List<Items> GetAllItemsByColoring()
         {
             using (var conn = Connection)
@@ -266,7 +231,7 @@ namespace Cake_Supplies.Repository
                                                 ,[category]
                                                 FROM [dbo].[items]
                                                 WHERE Id = @id";
-                 
+
                     cmd.Parameters.AddWithValue("@id", Id);
                     SqlDataReader reader = cmd.ExecuteReader();
                     Items item = null;
@@ -296,7 +261,7 @@ namespace Cake_Supplies.Repository
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                  
+
                     cmd.CommandText = @"INSERT INTO [dbo].[Items]
                             ([imageUrl]
                             ,[name]
@@ -316,7 +281,7 @@ namespace Cake_Supplies.Repository
 
 
 
-                   // DbUtils.AddParameter(cmd, "@Id", item.Id);
+                    // DbUtils.AddParameter(cmd, "@Id", item.Id);
                     DbUtils.AddParameter(cmd, "@imageUrl", item.ImageUrl);
                     DbUtils.AddParameter(cmd, "@name", item.Name);
                     DbUtils.AddParameter(cmd, "@description", item.Description);

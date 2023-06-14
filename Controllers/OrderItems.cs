@@ -20,77 +20,40 @@ namespace Cake_Supplies.Controllers
         }
 
 
+        //==================================AddOrder=======================================
 
 
         [HttpPost("/AddOrder")]
-        public IActionResult post(AddOrder newOrder)
+        public IActionResult Post(AddOrder newOrder)
         {
             _orderItemsRepository.AddOrderCustomer(newOrder);
             return Created("", newOrder);
         }
 
 
-        //===========================================================
-        [HttpPost("/AddOrderItems")]
-        public IActionResult post(AddOrderFromCustomer newOrder)
+        //===================================UpdateOrder=============================================
+
+
+        // PUT api/<BookController>/5
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, OrderItems orderItems)
         {
-            _orderItemsRepository.AddOrderItems(newOrder);
-            return Created("", newOrder);
+            if (id != orderItems.OrderId)
+            {
+                return BadRequest();
+            }
+
+            _orderItemsRepository.EditOrderItems(orderItems);
+            return NoContent();
+        }
+        //============================DeleteOrder==============================
+        [HttpDelete("DeleteOrderById/{id}")]
+        public IActionResult Delete(int id)
+        {
+            _orderItemsRepository.DeleteOrderById(id);
+            return NoContent();
         }
 
 
-
-        //[HttpPost("/AddUserBook")]
-        //public IActionResult Post(UserBook userBook)
-        //{
-        //    _userBookRepository.AddUserBook(userBook);
-        //    return Created("", userBook);
-        //}
-
-
-        //PUT api/<BookController>/5
-        //[HttpPut("{id}")]
-        //public IActionResult Put(int id, UserBook userBook)
-        //{
-        //    if (id != userBook.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    _userBookRepository.EditUserBook(userBook);
-        //    return NoContent();
-        //}
-
-        //// GET: api/<OrderItems>
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        //// GET api/<OrderItems>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //// POST api/<OrderItems>
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //// PUT api/<OrderItems>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE api/<OrderItems>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

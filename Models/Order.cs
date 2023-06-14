@@ -4,8 +4,10 @@
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
-        public DateTime PickUpDate { get; set; } 
-      
+        public DateTime PickUpDate { get; set; }
+
+
     }
+
 }
 
