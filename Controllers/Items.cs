@@ -49,12 +49,6 @@ namespace Cake_Supplies.Controllers
         }
         //======================================================
 
-
-
-
-
-
-
         [HttpPost("AddItems")]
         public IActionResult AddItems(Items item)
         {
@@ -92,11 +86,6 @@ namespace Cake_Supplies.Controllers
             _itemsRepository.Update(id, item);
             return NoContent();
         }
-
-
-
-
-
 
         [HttpDelete("DeleteItems/{id}")]
         public IActionResult Delete(int id)

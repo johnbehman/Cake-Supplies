@@ -18,7 +18,10 @@ namespace Cake_Supplies.Controllers
         public UsersController(IUsersRepository usersRepository)
         {
             _usersRepository = usersRepository;
+
+
         }
+        //============================GetAllUsers=================================
 
         // GET: api/<userController>
         [HttpGet("GetAllUsers")]
@@ -27,9 +30,7 @@ namespace Cake_Supplies.Controllers
             return Ok(_usersRepository.GetAllUsers());
         }
 
-
-     
-        //=============================================================
+        //============================AddUsers=================================
 
 
         [HttpPost("AddUsers")]
@@ -39,6 +40,7 @@ namespace Cake_Supplies.Controllers
             return Created("/api/user/" + user.Id, user);
         }
 
+        //============================GetUsersById=================================
 
         [HttpGet("GetById/{id}")]
         public IActionResult GetById(int id)
@@ -55,7 +57,7 @@ namespace Cake_Supplies.Controllers
             return Ok(user);
 
         }
-        //======================================
+        //===============================GetByEmail====================================
 
         [HttpGet("GetByEmail/{email}")]
         public IActionResult GetByEmail(string email)
@@ -72,7 +74,7 @@ namespace Cake_Supplies.Controllers
             return Ok(user);
 
         }
-        //======================================
+        //==================================UpdateUsers=====================================
 
         [HttpPut("{id}")]
         public IActionResult UpdateUsers(int id, Users user)
@@ -86,9 +88,7 @@ namespace Cake_Supplies.Controllers
         }
 
 
-
-
-
+        //==============================DeleteUsers=====================================
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -102,6 +102,6 @@ namespace Cake_Supplies.Controllers
             return NoContent();
         }
 
-       
+
     }
 }
