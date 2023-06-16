@@ -42,10 +42,10 @@ export const CustomerView = () => {
           <Route path="coloring" element={<Coloring />} />
           <Route path="decoratingTools" element={<DecoratingTools />} />
           <Route path="order" element={<OrderList />} />
-          <Route path="order/create" element={<AddOrder />} />
+          <Route path="addOrder" element={<AddOrder />} />
           <Route path="bakingSupplies" element={<BakingSupplies />} />
           <Route path="edibles" element={<Edibles />} />
-          <Route path="order/:orderId" element={<EditOrder />} />
+          <Route path="order/:EditOrderId" element={<EditOrder />} />
           <Route path="editOrder" element={<EditOrder />} />
 
 

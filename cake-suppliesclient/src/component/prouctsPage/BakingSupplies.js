@@ -26,7 +26,7 @@ export const BakingSupplies = () => {
         <>
             <div className="bakingSupplies-background">
                 <div className="bakingSupplies_h1">
-                    <h1>Our Gallary</h1>
+                    <h1>Baking Supplies</h1>
                 </div>
                 <article className="baking" >
                     {
@@ -39,9 +39,11 @@ export const BakingSupplies = () => {
                                         <img className="baking-sppl" src={bakingSupplies.imageUrl} alt="Supplies" />
 
                                     </div>
-                                    <div>Name: {bakingSupplies.name}</div>
-                                    <div>Description: {bakingSupplies.description}</div>
+                                    <div className="ContainerDetails"> 
+                                    <div className="stylingName">Name: {bakingSupplies.name}</div>
+                                    <div className="descriptionBox">Description: {bakingSupplies.description}</div>
                                     <div>Category: {bakingSupplies.category}</div>
+                                    </div>
                                 </section>
                             }
                         )

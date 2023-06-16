@@ -7,6 +7,7 @@ import { LogOut } from "../auth/LogOut";
 import { Coloring } from "../prouctsPage/Coloring";
 import { BakingSupplies } from "../prouctsPage/BakingSupplies";
 import { Edibles } from "../prouctsPage/Edibles";
+import { OrderList } from "../orderListPage/OrderList";
 
 
 export const AdminView = () => {
@@ -31,6 +32,8 @@ export const AdminView = () => {
                 <Route path="coloring" element={<Coloring />} />
                 <Route path="bakingSupplies" element={<BakingSupplies />} />
                 <Route path="edibles" element={<Edibles />} />
+                <Route path="order" element={<OrderList />} />
+
                 {/* <Route path="aboutUs" element={<AboutUs />} />
             <Route path="order/:ordersId" element={<EditCakeForm />} />
             <Route path="order" element={<OrderList />} />

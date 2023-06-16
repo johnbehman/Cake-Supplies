@@ -1,3 +1,36 @@
+.mainpage{
+    background-color: rgb(234, 217, 217);
+}
+
 .orderMain {
     margin-left: 40%;
+    
+}
+.OrderImage{
+    background-color: rgb(231, 238, 186);
+    border: 2px dotted fuchsia;
+    color: black;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    width: 200px;
+    height: 200px;
+
+}
+.orderList{
+    width: 300px;
+  margin: 50px;
+  padding: 30px;
+  background-color: antiquewhite;
+  border-color: rgb(206, 89, 47);
+  border: 6px solid rgb(203, 158, 201);
+  border-radius: 10px 100px / 120px;
+}
+.orderListCustomer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    top: -40px;
+    position: relative;
+    align-content: center;
+  
 }

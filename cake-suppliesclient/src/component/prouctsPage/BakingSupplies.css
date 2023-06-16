@@ -7,3 +7,18 @@
     width: 200px;
     height: 200px;
 }
+.baking{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.bakingSupplies_h1{
+    font-family: 'Sansita Swashed', cursive;
+    color: rgb(221, 159, 159);
+    margin-bottom: 5%;
+    background-color: rgb(22, 22, 19);
+    text-align: center;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');

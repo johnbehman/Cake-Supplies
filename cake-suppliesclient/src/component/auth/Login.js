@@ -61,13 +61,13 @@ export const Login = () => {
 
   return (
     <div className="background-Image">
-      <main className="container--login">
-        <div className="logo-cake">
           <div className="projectName">
-            <h1>Cake Supplies</h1>
-            <div className="LoginQuote">"Today’s Premium Cake and Candy Supply Store with worldwide shipping located in Nashville,Cake and sweet Supplies ™ carries an extensive selection of the most relevant cake decorating supplies in todays market. You will find top of the line fondant cutters, rolled fondant, tylose powder, chocolate and candy making supplies, as well as the best icing and fondant tools, the highest quality cake pans, and much more."</div>
+            {/* <div className="LoginQuote">"Today’s Premium Cake and Candy Supply Store with worldwide shipping located in Nashville,Cake and sweet Supplies ™ carries an extensive selection of the most relevant cake decorating supplies in todays market. You will find top of the line fondant cutters, rolled fondant, tylose powder, chocolate and candy making supplies, as well as the best icing and fondant tools, the highest quality cake pans, and much more."</div> */}
+          <h1>Cake Supplies</h1>
 
           </div>
+      <main className="container--login">
+        <div className="logo-cake">
         </div>
         <section>
           <div className="form--login" >

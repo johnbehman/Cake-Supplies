@@ -40,6 +40,11 @@ export const Edibles = () => {
                                         <img className="edible" src={edibles.imageUrl} alt="Edibles" />
 
                                     </div>
+                                    <div className="ContainerDetails">    
+                                      <div className="stylingName">Name: {edibles.name}</div>
+                                        <div className="descriptionBox">Description: {edibles.description}</div>
+                                        <div>Category: {edibles.category}</div>
+                                        </div>
                                 </section>
                             }
                         )

@@ -75,14 +75,22 @@ export const CustomerNavbar = () => {
 
                     <div className="navbar__item active">
                         <Link className="navbar__link" to="/order">
-                            Order
+                        <i class="fa fa-cart-arrow-down" aria-hidden="true" >  Cart </i> 
+                        </Link>
+                    </div>
+
+
+                    <div className="navbar__item active">
+                        <Link className="navbar__link" to="/addOrder">
+                        Add Order
+
                         </Link>
                     </div>
 
 
                     <div className="navbar__item active">
                         <Link className="navbar__link" to="/aboutUs">
-                            <i class="fa fa-home" aria-hidden="true">About Us</i>
+                            <i class="fa fa-home" aria-hidden="true"> About Us</i>
 
                         </Link>
                     </div>

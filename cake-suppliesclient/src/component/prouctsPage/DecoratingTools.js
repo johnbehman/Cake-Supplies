@@ -33,16 +33,16 @@ export const DecoratingTools = () => {
                         decoratingTools.map(
                             (decoratingTools) => {
                                 return <section key={decoratingTools.id} >
-                                    {/* <p>{gallary.address} - {gallary.imageUrl} square feet</p> */}
                                     <div className="decoratinBox">
                                         <div>
-                                            <img className="decorating" src={decoratingTools.imageUrl} alt="DecoratingTools" />
+                                            <img className="decoratingImage" src={decoratingTools.imageUrl} alt="DecoratingTools" />
 
                                         </div>
-
-                                        <div>Name: {decoratingTools.name}</div>
-                                        <div>Description: {decoratingTools.description}</div>
+                                        <div className="ContainerDetails"> 
+                                        <div className="stylingName">Name: {decoratingTools.name}</div>
+                                        <div className="descriptionBox">Description: {decoratingTools.description}</div>
                                         <div>Category: {decoratingTools.category}</div>
+                                        </div>
                                     </div>
                                 </section>
                             }

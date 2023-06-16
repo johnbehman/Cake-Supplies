@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import "./Coloring.css";
 import { CustomerSearch } from "./CustomerSearch";
 
+
+
 export const Coloring = () => {
     const [coloring, setColoring] = useState([])
 
@@ -39,18 +41,25 @@ export const Coloring = () => {
                     {
                         coloring.map(
                             (coloring) => {
-                                return <section key={coloring.id} >
-                                    {/* <p>{gallary.address} - {gallary.imageUrl} square feet</p> */}
+
+
+
+
+
+                                return <section className="colorInfo"key={coloring.id} >
+                          
 
                                     <div className="text">
+                                     
                                         <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" />
+                                       
 
-
-
-
-                                        <div>Name: {coloring.name}</div>
-                                        <div>Description: {coloring.description}</div>
+                                     <div className="ContainerDetails">    
+                                      <div className="stylingName">Name: {coloring.name}</div>
+                                        <div className="descriptionBox">Description: {coloring.description}</div>
                                         <div>Category: {coloring.category}</div>
+                                        </div>
+           
                                     </div>
 
                                 </section>
@@ -58,6 +67,8 @@ export const Coloring = () => {
                         )
                     }
                 </article> </div>
+
+                
         </>
     );
 };

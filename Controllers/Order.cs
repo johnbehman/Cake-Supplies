@@ -38,14 +38,34 @@ namespace Cake_Supplies.Controllers
             {
                 return BadRequest();
             }
-            var customerOrder = _orderRepository.GetAllOrderById(customerId);
-            if (customerOrder == null)
+            var detailCustomerOrder = _orderRepository.GetAllOrderById(customerId);
+            if (detailCustomerOrder == null)
             {
                 return NotFound($"{customerId} Not Found!");
             }
-            return Ok(customerOrder);
+            return Ok(detailCustomerOrder);
 
         }
+
+        //===================Get=====================
+        [HttpGet("GetOrderByOrderId/{orderId}")]
+        public IActionResult GetAllOrderByOrderId(int orderId)
+        {
+            if (orderId == null)
+            {
+                return BadRequest();
+            }
+            var detailCustomerOrder = _orderRepository.GetAllOrderByOrderId(orderId);
+            if (detailCustomerOrder == null)
+            {
+                return NotFound($"{orderId} Not Found!");
+            }
+            return Ok(detailCustomerOrder);
+
+        }
+
+        //DetailCustomerOrder GetAllOrderByOrderId(int orderId);
+
 
     }
 }
