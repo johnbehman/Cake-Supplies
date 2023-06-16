@@ -10,7 +10,9 @@ namespace Cake_Supplies.Repository
         //void Delete(int id);
         //List<SortOrder> FetchOrderByCustomer(int CustomerId);
         //List<Order> FetchOrderByCustomer(int CustomerId);
-        List<CustomerOrder> GetAllOrderById(int customerId);
+        //List<CustomerOrder> GetAllOrderById(int customerId);
+        List<DetailCustomerOrder> GetAllOrderById(int customerId);
+        DetailCustomerOrder GetAllOrderByOrderId(int orderId);
         List<CustomerOrder> GetAllOrdersByAdmin();
         //Items SearchItemsById(int itemsId);
         //Order SearchCustomerOrderById(int customerId);

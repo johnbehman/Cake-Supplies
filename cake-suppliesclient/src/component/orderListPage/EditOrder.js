@@ -4,19 +4,13 @@ import { useNavigate, useParams } from "react-router-dom";
 export const EditOrder = () => {
 
     const [itemOrder, setItemOrder] = useState({
-        customerId: 0,
-        pickUpDate: "",
-        name: "",
-        address: "",
-        phone: "",
-        email: "",
+       
+        orderId: 0,
+        itemId: 0,
+        quantity: 0
+        });
 
-        orderItemsId: 0,
-        itemsId: 0,
-
-    });
-
-    const { customerId } = useParams();
+    const { EditOrderId } = useParams();
     const navigate = useNavigate();
 
 
@@ -24,99 +18,54 @@ export const EditOrder = () => {
     const projectUserObject = JSON.parse(localProjectUser);
 
     // Display
-
+    console.log(itemOrder);
     useEffect(() => {
         console.log(projectUserObject.id);
         fetch(
-            `https://localhost:7005/api/Order/id=${customerId}`)
+            `https://localhost:7005/api/Order/GetOrderByOrderId/${EditOrderId}`)
+
             .then((response) => response.json())
             .then((data) => {
                 console.log(data)
-                setItemOrder(data[0]);
+                //setItemOrder(data[0]);
             });
     }, []);
 
-    const handleSaveButtonClick = (e) => {
-        e.preventDefault();
+    // const handleSaveButtonClick = (e) => {
+    //     e.preventDefault();
 
 
+    //     //Edit
+    //     // https://localhost:7005/api/OrderItems/1
 
-        // Edit
 
-        return fetch(`https://localhost:7005/api/Order${itemOrder.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(itemOrder),
-        })
-            .then((response) => response.json())
-            .then(() => {
-                navigate("/order");
-            });
-    };
+    //     return fetch(`https://localhost:7005/api/OrderItems/${EditOrderId}`, {
+    //         method: "PUT",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(itemOrder),
+    //     })
+    //         .then((response) => response.json())
+    //         .then(() => {
+    //             navigate("/order");
+    //         });
+    // };
     // {itemOrder.name}
     return (
         <form className="cakeForm">
 
+         
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="items">Items:</label>
                     <input
-                        required
-                        autoFocus
-                        type="text"
-                        // className="form-control"
-
-                        value={itemOrder.name}
+                        type="number"
+                       // value={itemOrder.itemId}
                         onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.name = evt.target.value;
-                            setItemOrder(copy);
-                        }}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="address">Address:</label>
-                    <input
-                        type="text"
-                        value={itemOrder.address}
-                        onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.address = evt.target.value;
-                            setItemOrder(copy);
-                        }}
-                    />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="phone">Phone:</label>
-                    <input
-                        type="text"
-                        value={itemOrder.phone}
-                        onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.phone = evt.target.value;
-                            setItemOrder(copy);
-                        }}
-                    />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="text"
-                        value={itemOrder.email}
-                        onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.email = evt.target.value;
-                            setItemOrder(copy);
+                            const copy =  itemOrder ;
+                            copy.itemId = evt.target.value;
+                            //setItemOrder(copy);
                         }}
                     />
                 </div>
@@ -126,12 +75,12 @@ export const EditOrder = () => {
                 <div className="form-group">
                     <label htmlFor="cakeFlavor">quantity:</label>
                     <select
-                        value={itemOrder.itemsId}
+                       // value={itemOrder.itemId}
                         onChange={(evt) => {
-                            const copy = { ...itemOrder };
-                            copy.itemsId = parseInt(evt.target.value);
+                            const copy = itemOrder ;
+                            copy.itemId = parseInt(evt.target.value);
 
-                            setItemOrder(copy);
+                            //setItemOrder(copy);
                         }}
                     >
                         <option value="0"></option>
@@ -147,10 +96,14 @@ export const EditOrder = () => {
 
 
             <button
-                onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                onClick={(clickEvent) =>
+                    <></>
+                    //handleSaveButtonClick(clickEvent)
+                }
+
                 className="btn btn-primary"
             >
-                Submit  orders
+                Edit
             </button>
         </form>
     );

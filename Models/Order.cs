@@ -6,8 +6,8 @@
         public int CustomerId { get; set; }
         public DateTime PickUpDate { get; set; }
 
-
     }
+
 
 }
 

@@ -16,7 +16,7 @@ const GetPostConfig = (body) => {
 
 export const SearchItemCustomer = async (Name) => {
     const response = await fetch(
-        `https://localhost:7005/api/Items/SearchItemsByName?Name=${Name}`, GetConfig);
+        `https://localhost:7005/api/Items/SearchItemsByName/${Name}`, GetConfig);
 
     if (response.ok) {
         const GetCustomerItemResponse = await response.json();

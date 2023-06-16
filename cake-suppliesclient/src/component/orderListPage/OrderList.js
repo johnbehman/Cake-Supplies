@@ -47,7 +47,9 @@ export const OrderList = () => {
             <button
                 onClick={() => {
                     fetch(
-                        `https://localhost:7005/api/Order/GetAllOrderByAdmin${ordersId}`,
+                        `https://localhost:7005/api/OrderItems/
+
+                        ${ordersId}`,
                         {
                             method: "DELETE"
                         }
@@ -61,29 +63,36 @@ export const OrderList = () => {
         );
 
     };
+console.log(Order);
+
+
+
+
 
     return (
         <>
+        <div className="mainpage">
             <div className="orderMain">
 
 
                 <div className="order_h1">
-                    <h1> order List</h1>
+                    <h1> Cart </h1>
 
                 </div>
-                <article className="order">
+                <article className="orderListCustomer">
 
                     {Order.map((order) => {
                         return (
-                            <section key={order.id} className="orderList">
+                            <section key={order.orderId} className="orderList">
                                 {/* <p>{order.address} - {order.imageUrl} square feet</p> */}
                                 <div>
                                     <div className="font-list">
                                         {/* < className="order" src={order.id} alt="wedding cake" /> */}
                                         <div>
                                             {/* <p>Name: {order.name} </p> */}
-                                            <Link to={`/order/${order.id}`}>Name: {order.name} </Link>
+                                            <Link to={`/order/${order.orderId}`}>Name: {order.customerName} </Link>
                                         </div>
+
                                         <div>
                                             <p>pickUpDate: {order.pickUpDate}</p>
                                         </div>
@@ -100,15 +109,15 @@ export const OrderList = () => {
                                         <div>
                                             <p>Quantity: {order.quantity}</p>
                                         </div>
-                                        <div>
-                                            <p>Image: {order.imageUrl}</p>
+                                        <div >
+                                            Image:   <img  className="OrderImage" src={order.imageUrl} />
                                         </div>
 
                                         <div>
-                                            <p>Name: {order.customerName}</p>
+                                            <p>Name: {order.itemName}</p>
                                         </div>
                                         <div>
-                                            <p>Category: {order.Category}</p>
+                                            <p>Category: {order.category}</p>
                                         </div>
 
 
@@ -120,7 +129,7 @@ export const OrderList = () => {
                                 </div>
                                 {deleteButton(order.id)}
                                 <div >
-                                    <button className="create-bt" onClick={() => navigate("/order/create")}>Create order</button>
+                                    <button className="create-bt" onClick={() => navigate(`/order/${order.id}`)}>Create order</button>
                                 </div>
                                 {/* <button
           onClick={(clickEvent) => {
@@ -135,6 +144,7 @@ export const OrderList = () => {
                         );
                     })}
                 </article>
+            </div>
             </div>
         </>
     );

@@ -1,5 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');
+
+
+.coloring_h1{
+   
+    font-family: 'Sansita Swashed', cursive;
+    color: rgb(221, 159, 159);
+    margin-bottom: 5%;
+    background-color: rgb(22, 22, 19);
+    text-align: center;
+
+}
+
 .coloring {
-    /* border-radius: 8px; */
     background-color: rgb(231, 238, 186);
     border: 2px dotted fuchsia;
     color: black;
@@ -9,23 +22,21 @@
     height: 200px;
 
 }
-
-.colors {
-    background-color: rgb(231, 238, 186);
-    border: 2px dotted fuchsia;
-    color: black;
-    padding: 0.75rem;
-    margin: 0.5rem;
-    width: 200px;
-    height: 200px;
+.ContainerDetails{
+    background-color: rgb(241, 236, 230);
+    width: 300px;
+}
+.stylingName{
+    background-color: aquamarine;
+    margin-bottom: 5%;
 }
 
-.coloring_h1 h1 {
-    left: 600px;
-    top: 10px;
-    position: relative;
-    color: fuchsia;
-    margin-top: 10px;
-    width: 180px;
-    border-radius: 10px;
+.descriptionBox{
+    background-color: rgb(223, 205, 205);
+}
+.colors{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

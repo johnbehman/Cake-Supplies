@@ -32,7 +32,6 @@ export const CustomerSearch = () => {
 
 
             <article className="UserBooksPageContainer">
-                {/* <SearchItems searchClicked={e => GetSearchItems(e)} /> */}
 
                 <div className="SearchUserBookContainer">
                     <input
@@ -47,7 +46,7 @@ export const CustomerSearch = () => {
                     <div className="searchButtonUserBooks" onClick={() => GetSearchItems(names)}>Search</div>
                 </div>
 
-                {product && product.map((item) => {
+                {product.map((item) => {
                     (
                         <section className="UserBooksContainer">
                             <img src={item.imageUrl} alt="item" />

@@ -4,12 +4,6 @@ import "./Navbar.css"
 import { Link, useNavigate } from "react-router-dom";
 
 
-{/* <nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav> */}
 
 
 
@@ -63,7 +57,7 @@ export const AdminNavbar = () => {
 
                 <div className="navbar__item active">
                     <Link className="navbar__link" to="/aboutUs">
-                        <i class="fa fa-home" aria-hidden="true">About Us</i>
+                        <i className="fa fa-home" aria-hidden="true">About Us</i>
 
                     </Link>
                 </div>
