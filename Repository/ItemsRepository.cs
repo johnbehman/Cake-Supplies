@@ -275,12 +275,6 @@ namespace Cake_Supplies.Repository
                             ,@category)";
 
 
-
-
-
-
-
-
                     // DbUtils.AddParameter(cmd, "@Id", item.Id);
                     DbUtils.AddParameter(cmd, "@imageUrl", item.ImageUrl);
                     DbUtils.AddParameter(cmd, "@name", item.Name);

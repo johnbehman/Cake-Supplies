@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 
 import React from "react";
 import { useEffect, useState } from "react"
 import "./Edibles.css";
+import { ItemDetails } from "./ItemDetails";
 
 export const Edibles = () => {
     const [edibles, setEdibles] = useState([])
@@ -14,6 +16,7 @@ export const Edibles = () => {
                 setEdibles(ediblesArray)
             }
             fetchData()
+
 
         },
         []
@@ -33,18 +36,20 @@ export const Edibles = () => {
                     {
                         edibles.map(
                             (edibles) => {
-                                return <section key={edibles.id} >
-                                    {/* <p>{gallary.address} - {gallary.imageUrl} square feet</p> */}
+                                return <section key={edibles.orderId} >
+                                    <div>
+                                        <Link to={`/itemDetails/${edibles.orderId}`}>Name: {edibles.Name} </Link>
+                                    </div>
 
                                     <div>
                                         <img className="edible" src={edibles.imageUrl} alt="Edibles" />
 
                                     </div>
-                                    <div className="ContainerDetails">    
-                                      <div className="stylingName">Name: {edibles.name}</div>
+                                    <div className="ContainerDetails">
+                                        <div className="stylingName">Name: {edibles.name}</div>
                                         <div className="descriptionBox">Description: {edibles.description}</div>
                                         <div>Category: {edibles.category}</div>
-                                        </div>
+                                    </div>
                                 </section>
                             }
                         )

@@ -31,7 +31,6 @@ export const Coloring = () => {
     return (
         <>
             <div className="coloring-background">
-                <CustomerSearch />
                 <div className="coloring_h1">
 
                     <h1>Coloring</h1>
@@ -50,9 +49,9 @@ export const Coloring = () => {
                           
 
                                     <div className="text">
-                                     
+                                    <div>
                                         <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" />
-                                       
+                                        </div>
 
                                      <div className="ContainerDetails">    
                                       <div className="stylingName">Name: {coloring.name}</div>

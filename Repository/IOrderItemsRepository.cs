@@ -7,5 +7,7 @@ namespace Cake_Supplies.Repository
         void AddOrderCustomer(AddOrder newOrder);
         void DeleteOrderById(int id);
         void EditOrderItems(OrderItems orderItems);
+        //bool Exists(AddOrder order);
+        ExistingOrder Exists(AddOrder order);
     }
 }

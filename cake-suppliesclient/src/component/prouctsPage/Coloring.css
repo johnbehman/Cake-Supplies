@@ -5,11 +5,12 @@
 .coloring_h1{
    
     font-family: 'Sansita Swashed', cursive;
-    color: rgb(221, 159, 159);
+    
+    color: rgb(5, 3, 27);
     margin-bottom: 5%;
-    background-color: rgb(22, 22, 19);
+    /* background-color: rgb(22, 22, 19); */
     text-align: center;
-
+    background-image: url("https://www.shutterstock.com/image-illustration/unicorn-marble-galaxy-print-patternpastel-260nw-1784173463.jpg");
 }
 
 .coloring {
@@ -39,4 +40,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-image: url("https://png.pngtree.com/png-clipart/20220615/ourmid/pngtree-cute-rainbow-airbrush-design-png-image_5077177.png");
+
 }

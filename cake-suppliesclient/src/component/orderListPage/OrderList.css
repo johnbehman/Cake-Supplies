@@ -1,11 +1,22 @@
 .mainpage{
     background-color: rgb(234, 217, 217);
+
 }
 
-.orderMain {
+
+.order_h1{
+    font-family: 'Sansita Swashed', cursive;   
+    color: rgb(5, 3, 27);
+    /* margin-bottom: 5%; */
+    background-color: rgb(193, 190, 214);
+    text-align: center;
+
+}
+
+/* .orderMain {
     margin-left: 40%;
     
-}
+} */
 .OrderImage{
     background-color: rgb(231, 238, 186);
     border: 2px dotted fuchsia;

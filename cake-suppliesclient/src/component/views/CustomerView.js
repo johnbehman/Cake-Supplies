@@ -2,7 +2,6 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import { Login } from "../auth/Login";
 import { LogOut } from "../auth/LogOut.js";
 import React from "react";
-import { Coloring } from "../prouctsPage/Coloring";
 import { BakingSupplies } from "../prouctsPage/BakingSupplies"
 import { Edibles } from "../prouctsPage/Edibles"
 import { AboutUs } from "../aboutUs/AboutUs";
@@ -11,7 +10,10 @@ import logo from "../images/logo.png";
 import { OrderList } from "../orderListPage/OrderList";
 import { AddOrder } from "../orderListPage/AddOrder";
 import { EditOrder } from "../orderListPage/EditOrder";
-import { CustomerSearch } from "../prouctsPage/CustomerSearch";
+// import { CustomerSearch } from "../prouctsPage/CustomerSearch";
+import { ItemDetails } from "../prouctsPage/ItemDetails";
+import { Coloring } from "../prouctsPage/Coloring";
+import { SearchBar } from "../prouctsPage/SearchBar";
 
 
 
@@ -33,7 +35,7 @@ export const CustomerView = () => {
           }
         >
           {/* <Route path="/" element={<Home />} /> */}
-          <Route path="searchItems" element={<CustomerSearch />} />
+          {/* <Route path="searchItems" element={<CustomerSearch />} /> */}
 
           <Route path="/" element={<AboutUs />} />
           <Route path="aboutUs" element={<AboutUs />} />
@@ -47,6 +49,13 @@ export const CustomerView = () => {
           <Route path="edibles" element={<Edibles />} />
           <Route path="order/:EditOrderId" element={<EditOrder />} />
           <Route path="editOrder" element={<EditOrder />} />
+          <Route path="searchBar" element={<SearchBar />} />
+          <Route path="itemDetails/:EditOrderId" element={<ItemDetails />} />
+          <Route path="order/:orderId" element={<OrderList />} />
+
+
+
+
 
 
 

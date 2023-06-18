@@ -27,8 +27,14 @@ namespace Cake_Supplies.Models
         //public List<Items> Items { get; set; }  
     }
 
+    public class ExistingOrder
+    {
+        public int OrderId { get; set; }
+        public int Quantity { get; set; }
+    }
 
-    
+
+
 
     public class AddOrderFromCustomer
     {

@@ -3,14 +3,15 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export const EditOrder = () => {
 
+    const { EditOrderId } = useParams();
+
     const [itemOrder, setItemOrder] = useState({
-       
-        orderId: 0,
+        orderId: parseInt(EditOrderId),
         itemId: 0,
         quantity: 0
-        });
+    });
 
-    const { EditOrderId } = useParams();
+    console.log("TEST: ", EditOrderId);
     const navigate = useNavigate();
 
 
@@ -19,72 +20,68 @@ export const EditOrder = () => {
 
     // Display
     console.log(itemOrder);
-    useEffect(() => {
-        console.log(projectUserObject.id);
-        fetch(
-            `https://localhost:7005/api/Order/GetOrderByOrderId/${EditOrderId}`)
-
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
-                //setItemOrder(data[0]);
-            });
-    }, []);
-
-    // const handleSaveButtonClick = (e) => {
-    //     e.preventDefault();
-
-
-    //     //Edit
-    //     // https://localhost:7005/api/OrderItems/1
-
-
-    //     return fetch(`https://localhost:7005/api/OrderItems/${EditOrderId}`, {
+    // useEffect(() => {
+    //     console.log(projectUserObject.id);
+    //     fetch(
+    //         `https://localhost:7005/api/OrderItems/${EditOrderId}`, {
     //         method: "PUT",
     //         headers: {
     //             "Content-Type": "application/json",
     //         },
-    //         body: JSON.stringify(itemOrder),
+    //         body: JSON.stringify(itemOrder)
     //     })
     //         .then((response) => response.json())
-    //         .then(() => {
-    //             navigate("/order");
+    //         .then((data) => {
+    //             console.log(data)
+    //             //setItemOrder(data[0]);
     //         });
-    // };
-    // {itemOrder.name}
+    // }, []);
+
+    const handleSaveButtonClick = (e) => {
+        e.preventDefault();
+
+
+        //Edit
+        // https://localhost:7005/api/OrderItems/1
+
+
+        return fetch(`https://localhost:7005/api/OrderItems/${EditOrderId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(itemOrder),
+        })
+            .then((response) => response.json())
+            .then(() => {
+                navigate("/order");
+            });
+    };
+
+    //{itemOrder.name}
     return (
         <form className="cakeForm">
 
-         
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="items">Items:</label>
-                    <input
-                        type="number"
-                       // value={itemOrder.itemId}
-                        onChange={(evt) => {
-                            const copy =  itemOrder ;
-                            copy.itemId = evt.target.value;
-                            //setItemOrder(copy);
-                        }}
-                    />
-                </div>
-            </fieldset>
+
+
+
+
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="cakeFlavor">quantity:</label>
+                    <label htmlFor="quantity">Quantity:</label>
                     <select
-                       // value={itemOrder.itemId}
+                        // value={itemOrder.itemId}
                         onChange={(evt) => {
-                            const copy = itemOrder ;
-                            copy.itemId = parseInt(evt.target.value);
+                            const copy = itemOrder;
+                            copy.quantity = parseInt(evt.target.value);
+                            console.log("Copy: ", copy);
 
-                            //setItemOrder(copy);
+                            setItemOrder(copy);
                         }}
                     >
                         <option value="0"></option>
-                        <option value="1">1</option>
+                        <option value="1" >1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -96,9 +93,10 @@ export const EditOrder = () => {
 
 
             <button
-                onClick={(clickEvent) =>
-                    <></>
-                    //handleSaveButtonClick(clickEvent)
+                onClick={(clickEvent) => {
+
+                    handleSaveButtonClick(clickEvent)
+                }
                 }
 
                 className="btn btn-primary"

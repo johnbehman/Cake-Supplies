@@ -12,12 +12,13 @@ export const CustomerNavbar = () => {
     return (
 
         <div className="navImgContainer">
+            <div className="navBarLinks">
 
-            <div className="App">
-                <>
-                    <Dropdown>
+                <div className="navBarLinks">
+
+                    <Dropdown className="navbar__item active">
                         <Dropdown.Toggle variant=" primary" id="dropdown-basic">
-                            Catagory
+                            Category
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
@@ -51,47 +52,37 @@ export const CustomerNavbar = () => {
 
                         </Dropdown.Menu>
                     </Dropdown>
-                </>
-            </div>
-
-
-            <div className="navBarLinks">
-
-                <div className="navBarLinks">
-
-
 
                     <div className="navbar__item active">
-                        <Link className="navbar__link" to="/searchItems">
+                        <i className="fa fa-search" aria-hidden="true"> </i>
+                        <Link className="navbar__link" to="/SearchBar">
                             Search
-
                         </Link>
                     </div>
 
 
 
-
-
-
                     <div className="navbar__item active">
+                        <i className="fa fa-cart-arrow-down" aria-hidden="true" >   </i>
                         <Link className="navbar__link" to="/order">
-                        <i class="fa fa-cart-arrow-down" aria-hidden="true" >  Cart </i> 
+                            Cart
                         </Link>
                     </div>
 
 
                     <div className="navbar__item active">
+                        <i className="fa fa-plus" aria-hidden="true"> </i>
                         <Link className="navbar__link" to="/addOrder">
-                        Add Order
 
+                            Add Order
                         </Link>
                     </div>
 
 
                     <div className="navbar__item active">
+                        <i className="fa fa-home" aria-hidden="true"> </i>
                         <Link className="navbar__link" to="/aboutUs">
-                            <i class="fa fa-home" aria-hidden="true"> About Us</i>
-
+                            About Us
                         </Link>
                     </div>
 
@@ -105,7 +96,8 @@ export const CustomerNavbar = () => {
                                     navigate("/", { replace: true });
                                 }}
                             >
-                                Logout
+                                <i className="fa fa-sign-out" aria-hidden="true">   </i>
+                                Sign out
                             </Link>
 
                         </div>

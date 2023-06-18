@@ -1,6 +1,4 @@
-div.navImgContainer {
-    background-color: aqua;
-}
+
 
 .navBarLinks {
 
@@ -8,7 +6,10 @@ div.navImgContainer {
     flex-direction: row;
     position: absolute;
     right: 10px;
+    
 }
+
+
 
 
 .navbar {
@@ -35,6 +36,9 @@ div.navImgContainer {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(222, 208, 226);
+    
+
 }
 
 .navbar__item:hover {
@@ -63,13 +67,25 @@ div.navImgContainer {
     font-family: "Glegoo", "Roboto", "Open sans", "sans-serif";
     font-size: larger;
     color: aliceblue;
+    
 }
 
 .navLink:hover {
     color: #0b1c3b;
     transition: all 0.5s;
+    
 }
 
 .navLink:active {
     color: #000;
 }
+
+.App{
+    margin-right: 30%;
+}
+
+/* .navbar__item active{
+    background-color: bisque;
+
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');
