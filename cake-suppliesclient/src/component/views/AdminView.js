@@ -8,6 +8,7 @@ import { Coloring } from "../prouctsPage/Coloring";
 import { BakingSupplies } from "../prouctsPage/BakingSupplies";
 import { Edibles } from "../prouctsPage/Edibles";
 import { OrderList } from "../orderListPage/OrderList";
+import { DecoratingTools } from "../prouctsPage/DecoratingTools";
 
 
 export const AdminView = () => {
@@ -31,6 +32,8 @@ export const AdminView = () => {
                 <Route path="login" element={<LogOut />} />
                 <Route path="coloring" element={<Coloring />} />
                 <Route path="bakingSupplies" element={<BakingSupplies />} />
+                <Route path="decoratingTools" element={<DecoratingTools />} />
+
                 <Route path="edibles" element={<Edibles />} />
                 <Route path="order" element={<OrderList />} />
 

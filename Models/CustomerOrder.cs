@@ -46,6 +46,19 @@ namespace Cake_Supplies.Models
         public string Category { get; set; }
 
     }
+    //public class DetailOrderByAdmin
+    //{
+    //    public int OrderId { get; set; }
+    //    public string? ImageUrl { get; set; }
+    //    public int? Quantity { get; set; }
+    //    public string? CustomerName { get; set; }
+    //    public string? Address { get; set; }
+    //    public string? Phone { get; set; }
+    //    public string? Email { get; set; }
+    //    public DateTime PickUpDate { get; set; }
+    //    public string? ItemName { get; set; }
+    //    public string Category { get; set; }
+    //}
 
 
 

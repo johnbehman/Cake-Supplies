@@ -27,7 +27,7 @@ namespace Cake_Supplies.Controllers
         public IActionResult GetAllOrdersByAdmin()
         {
 
-            return Ok(_orderRepository.GetAllOrdersByAdmin());
+            return Ok(_orderRepository.GETAllOrdersByAdmin());
         }
 
         //==========================================================

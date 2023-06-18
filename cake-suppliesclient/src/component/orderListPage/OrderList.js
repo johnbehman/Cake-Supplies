@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import "./OrderList.css";
 
 
@@ -15,6 +15,7 @@ import "./OrderList.css";
 export const OrderList = () => {
     const [Order, setOrder] = useState([]);
     const navigate = useNavigate();
+    const { orderId } = useParams();
 
     const localProjectUser = localStorage.getItem("project_user");
     const projectUserObject = JSON.parse(localProjectUser);
@@ -39,17 +40,18 @@ export const OrderList = () => {
         fetchData();
     }, [needRefresh]);
 
+    //https://localhost:7005/api/OrderItems/DeleteOrderById/36
 
 
-    const deleteButton = (ordersId) => {
+    const deleteButton = (orderId) => {
 
         return (
             <button
                 onClick={() => {
                     fetch(
-                        `https://localhost:7005/api/OrderItems/
+                        `https://localhost:7005/api/OrderItems/DeleteOrderById/${orderId}`,
 
-                        ${ordersId}`,
+
                         {
                             method: "DELETE"
                         }
@@ -63,75 +65,81 @@ export const OrderList = () => {
         );
 
     };
-console.log(Order);
 
+    let test = Order.filter(x => x.itemName === "Ivory Amerimist Air Brush Color")
+    let test2 = 0
+    let test3 = test.map(x => test2 += x.quantity)
 
-
-
-
+    console.log(test2);
     return (
         <>
-        <div className="mainpage">
-            <div className="orderMain">
+            <div className="mainpage">
 
 
                 <div className="order_h1">
                     <h1> Cart </h1>
-
                 </div>
-                <article className="orderListCustomer">
 
-                    {Order.map((order) => {
-                        return (
-                            <section key={order.orderId} className="orderList">
-                                {/* <p>{order.address} - {order.imageUrl} square feet</p> */}
-                                <div>
-                                    <div className="font-list">
-                                        {/* < className="order" src={order.id} alt="wedding cake" /> */}
-                                        <div>
-                                            {/* <p>Name: {order.name} </p> */}
-                                            <Link to={`/order/${order.orderId}`}>Name: {order.customerName} </Link>
+                <div className="orderMain">
+                    <article className="orderListCustomer">
+
+                        {Order.map((order) => {
+                      
+                            return (
+
+                                <section key={order.orderId} className="orderList">
+                                    {/* <p>{order.address} - {order.imageUrl} square feet</p> */}
+                                    <div>
+                                        <div className="font-list">
+                                            {/* < className="order" src={order.id} alt="wedding cake" /> */}
+                                            <div>
+                                                {/* <p>Name: {order.name} </p> */}
+                                                <Link to={`/order/${order.orderId}`}>Name: {order.customerName} </Link>
+                                            </div>
+
+                                            <div>
+                                                <p>pickUpDate: {order.pickUpDate}</p>
+                                            </div>
+                                            <div>
+                                                <p>Address: {order.address}</p>
+                                            </div>
+
+                                            <div>
+                                                <p>phone: {order.phone}</p>
+                                            </div>
+                                            <div>
+                                                <p>Email: {order.email}</p>
+                                            </div>
+                                            <div>
+                                                <p>Quantity: {order.quantity}</p>
+                                            </div>
+                                            <div >
+                                                Image:   <img className="OrderImage" src={order.imageUrl} />
+                                            </div>
+
+                                            <div>
+                                                <p>Name: {order.itemName}</p>
+                                            </div>
+                                            <div>
+                                                <p>Category: {order.category}</p>
+                                            </div>
+
+
+
+
+
+
                                         </div>
-
-                                        <div>
-                                            <p>pickUpDate: {order.pickUpDate}</p>
-                                        </div>
-                                        <div>
-                                            <p>Address: {order.address}</p>
-                                        </div>
-
-                                        <div>
-                                            <p>phone: {order.phone}</p>
-                                        </div>
-                                        <div>
-                                            <p>Email: {order.email}</p>
-                                        </div>
-                                        <div>
-                                            <p>Quantity: {order.quantity}</p>
-                                        </div>
-                                        <div >
-                                            Image:   <img  className="OrderImage" src={order.imageUrl} />
-                                        </div>
-
-                                        <div>
-                                            <p>Name: {order.itemName}</p>
-                                        </div>
-                                        <div>
-                                            <p>Category: {order.category}</p>
-                                        </div>
-
-
-
-
-
-
                                     </div>
-                                </div>
-                                {deleteButton(order.id)}
-                                <div >
-                                    <button className="create-bt" onClick={() => navigate(`/order/${order.id}`)}>Create order</button>
-                                </div>
-                                {/* <button
+                                    <div>
+                                        {deleteButton(order.orderId)}
+                                    </div>
+
+
+                                    {/* <div >
+                                    <button className="create-bt" onClick={() => navigate(`/order/${Order.id}`)}>Create order</button>
+                                </div> */}
+                                    {/* <button
           onClick={(clickEvent) => {
             handleSaveButtonClick(clickEvent);
           }}
@@ -140,11 +148,11 @@ console.log(Order);
           Edit
         </button> */}
 
-                            </section>
-                        );
-                    })}
-                </article>
-            </div>
+                                </section>
+                            );
+                        })}
+                    </article>
+                </div>
             </div>
         </>
     );

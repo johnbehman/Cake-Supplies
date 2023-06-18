@@ -2,6 +2,7 @@
 using Cake_Supplies.Models;
 using Cake_Supplies.Utils.cs;
 using Microsoft.Data.SqlClient;
+using System.IO.Pipelines;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Cake_Supplies.Repository
@@ -70,11 +71,73 @@ namespace Cake_Supplies.Repository
                 }
             }
         }
+
+        //cmd.CommandText = @"select * from OrderItems
+        //                        where 
+        //                        orderId = @orderId and
+        //                        itemId= @itemId
+        //                    ";
         //============================================================
 
 
+        public ExistingOrder Exists(AddOrder order)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"select top 1 
+	                                O.id AS OrderId,
+                                    OI.quantity
+                                    from OrderItems OI
+                                    Join	 Items I
+                                    on OI.itemId = I.id
+                                    join dbo.[Order] O
+                                    on OI.orderId = O.id
+                                    Join dbo.[Users] U
+                                    on U.id = O.customerId
+                                    where U.id = @customerId and I.id = @itemId
+                                    ";
+                    DbUtils.AddParameter(cmd, "@itemId",order.OrderItems.ItemId);
+                    DbUtils.AddParameter(cmd, "@customerId", order.CustomerId);
 
+                    var existingOrder = new ExistingOrder();
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        existingOrder = new ExistingOrder()
+                        {
+                            OrderId = DbUtils.GetInt(reader, "OrderId"),
+                            Quantity = DbUtils.GetInt(reader, "quantity")                  };
 
+                    }
+                    return existingOrder;
+                }
+            }
+        }
+
+        //public bool Exists(AddOrder order)
+        //{
+        //    using (var conn = Connection)
+        //    {
+        //        conn.Open();
+        //        using (var cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = @"select * from OrderItems
+        //                        where 
+        //                        itemId= @itemId
+        //                    ";
+        //            DbUtils.AddParameter(cmd, "@itemId", order.OrderItems.ItemId);
+        //            DbUtils.AddParameter(cmd, "@orderId", order.OrderItems.OrderId);
+
+        //            var reader = cmd.ExecuteReader();
+        //            return reader.Read();
+        //        }
+        //    }
+
+        //}
+        //==============================================
         public void EditOrderItems(OrderItems orderItems)
         {
             using (var conn = Connection)
