@@ -15,7 +15,7 @@ import "./OrderList.css";
 export const OrderList = () => {
     const [Order, setOrder] = useState([]);
     const navigate = useNavigate();
-    const { orderId } = useParams();
+    const { id } = useParams();
 
     const localProjectUser = localStorage.getItem("project_user");
     const projectUserObject = JSON.parse(localProjectUser);
@@ -23,6 +23,49 @@ export const OrderList = () => {
 
     const [needRefresh, setNeedRefresh] = useState(false);
 
+    const [itemOrder, setItemOrder] = useState({
+        //id:0,
+        orderId: 0,
+        itemId: 0,
+        quantity: 0
+    });
+    // =========================================
+    //useEffect(() => {
+    //     fetch(
+    //         `https://localhost:7005/api/OrderItems/${id}`
+
+
+    //         )
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data)
+    //             setItemOrder(data);
+    //         });
+    // }, []);
+
+    const handleSaveButtonClick = (e) => {
+        e.preventDefault();
+
+
+        //Edit
+        // https://localhost:7005/api/OrderItems/1
+        //https://localhost:7005/api/OrderItems/68
+
+        fetch(`https://localhost:7005/api/OrderItems/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(itemOrder),
+        })
+            .then(() => {
+                navigate("/order");
+            });
+    };
+
+
+
+    // =========================================
 
 
 
@@ -78,7 +121,7 @@ export const OrderList = () => {
                 </div>
 
                 <div className="orderMain">
-                                                          
+
                     <article className="orderListCustomer">
 
                         {Order.map((order) => {
@@ -129,9 +172,7 @@ export const OrderList = () => {
 
                                         </div>
                                     </div>
-                                    <div>
-                                        {deleteButton(order.orderId)}
-                                    </div>
+
 
 
                                     {/* <div >
@@ -145,9 +186,54 @@ export const OrderList = () => {
             >
             Edit
         </button> */}
-                                    
-                                    
-                                    </section>
+
+                                    <form className="cakeForm">
+
+
+
+                                        <fieldset>
+                                            <div className="form-group">
+                                                <label htmlFor="quantity">Quantity:</label>
+                                                <select
+                                                    value={order.quantity}
+                                                    onChange={(evt) => {
+                                                        const copy = order;
+                                                        copy.quantity = parseInt(evt.target.value);
+                                                        console.log("Copy: ", copy);
+
+                                                        //setItemOrder(copy);
+                                                    }}
+                                                >
+                                                    <option value="0"></option>
+                                                    <option value="1" >1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </div>
+                                        </fieldset>
+
+
+                                        <button
+                                            onClick={(clickEvent) => {
+
+                                                handleSaveButtonClick(clickEvent)
+                                            }
+                                            }
+
+                                            className="btn btn-primary"
+                                        >
+                                            Edit
+                                        </button>
+                                    </form>
+
+                                    <br />
+                                    <div>
+                                        {deleteButton(order.orderId)}
+                                    </div>
+                                </section>
                             );
                         })}
                     </article>
