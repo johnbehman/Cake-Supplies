@@ -151,15 +151,18 @@ namespace Cake_Supplies.Repository
                                   ,[quantity] = @quantity
                              WHERE [orderId] = @Id
                             ";
+
                     DbUtils.AddParameter(cmd, "@itemId", orderItems.ItemId);
                     DbUtils.AddParameter(cmd, "@quantity", orderItems.Quantity);
 
-                    DbUtils.AddParameter(cmd, "@Id", orderItems.OrderId);
+                   DbUtils.AddParameter(cmd, "@Id", orderItems.OrderId);
                     cmd.ExecuteNonQuery();
 
                 }
             }
         }
+
+
         //===================================================
 
         public void DeleteOrderById(int id)

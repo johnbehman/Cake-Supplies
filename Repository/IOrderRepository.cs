@@ -15,6 +15,8 @@ namespace Cake_Supplies.Repository
         List<DetailCustomerOrder> GetAllOrderById(int customerId);
         DetailCustomerOrder GetAllOrderByOrderId(int orderId);
         List<DetailCustomerOrder> GETAllOrdersByAdmin();
+        //OrderItemsById GetById(int Id);
+        //OrderItems GetById(int Id);
         //List<DetailOrderByAdmin> GetAllOrdersByAdmin();
         //Items SearchItemsById(int itemsId);
         //Order SearchCustomerOrderById(int customerId);

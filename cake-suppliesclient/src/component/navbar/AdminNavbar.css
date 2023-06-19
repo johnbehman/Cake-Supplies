@@ -6,11 +6,12 @@
     flex-direction: row;
     position: absolute;
     right: 10px;
-    
 }
 
 
-
+.navImgContainer{
+    padding-bottom: 5%;
+}
 
 .navbar {
     display: flex;

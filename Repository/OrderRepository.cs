@@ -20,6 +20,45 @@ namespace Cake_Supplies.Repository
         public OrderRepository(IConfiguration configuration) : base(configuration)
         {
         }
+  //      //=================================================================
+  //      public OrderItemsById GetOrderItemsByOrderId(int OrderId)
+  //      {
+  //          using (var conn = Connection)
+  //          {
+  //              conn.Open();
+  //              using (var cmd = conn.CreateCommand())
+  //              {
+  //                  cmd.CommandText = @"SELECT [id]
+  //    ,[orderId]
+  //    ,[itemId]
+  //    ,[quantity]
+  //FROM [dbo].[OrderItems]
+  //                                              WHERE OrderId = @orderId";
+  //                  cmd.Parameters.AddWithValue("@orderId", OrderId);
+  //                  SqlDataReader reader = cmd.ExecuteReader();
+  //                  OrderItemsById orderItemsById = null;
+  //                  if (reader.Read())
+  //                  {
+  //                      orderItemsById = new OrderItemsById()
+  //                      {
+  //                          Id = DbUtils.GetInt(reader, "id"),
+  //                          OrderId = DbUtils.GetInt(reader, "orderId"),
+  //                          ItemId = DbUtils.GetInt(reader, "itemId"),
+  //                          Quantity = DbUtils.GetInt(reader, "quantity")
+
+  //                      };
+  //                  }
+  //                  reader.Close();
+  //                  return orderItemsById;
+  //              }
+  //          }
+  //      }
+
+
+
+                       
+
+
         //=======================OrderById============================
         public DetailCustomerOrder GetAllOrderByOrderId(int orderId)
         {
@@ -318,31 +357,36 @@ join [Items] i on oi.itemId = i.id
                 
             
         }
-        //=========================GitOrderDetailsByOrderId======================================
-        //SELECT
-        //                        o.id AS OrderId
-        //                       , o.[pickUpDate]
+    //=========================GitOrderDetailsByOrderId======================================
+    //SELECT
+    //                        o.id AS OrderId
+    //                       , o.[pickUpDate]
 
-        //                          , oi.quantity
 
-        //                           , i.imageUrl
+    //                          , oi.quantity
 
-        //                            , i.[name] AS ItemName
 
-        //                            , i.description
-        //                      FROM [dbo].[Order] o
-        //                      LEFT JOIN[OrderItems] oi
+    //                           , i.imageUrl
 
-        //                       ON[oi].orderId = [o].id
 
-        //                       LEFT JOIN [Items] i
-        //                       ON [oi].ItemId= [i].Id
+    //                            , i.[name] AS ItemName
 
-        //                        WHERE o.id = 3
 
-        //======================================================================
+    //                            , i.description
+    //                      FROM [dbo].[Order] o
+    //                      LEFT JOIN[OrderItems] oi
 
+
+    //                       ON[oi].orderId = [o].id
+
+
+    //                       LEFT JOIN [Items] i
+    //                       ON [oi].ItemId= [i].Id
+
+
+    //                        WHERE o.id = 3
 
     
+
 }
 

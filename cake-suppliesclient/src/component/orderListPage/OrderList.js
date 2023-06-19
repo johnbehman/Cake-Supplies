@@ -66,11 +66,8 @@ export const OrderList = () => {
 
     };
 
-    let test = Order.filter(x => x.itemName === "Ivory Amerimist Air Brush Color")
-    let test2 = 0
-    let test3 = test.map(x => test2 += x.quantity)
 
-    console.log(test2);
+
     return (
         <>
             <div className="mainpage">
@@ -81,10 +78,11 @@ export const OrderList = () => {
                 </div>
 
                 <div className="orderMain">
+                                                          
                     <article className="orderListCustomer">
 
                         {Order.map((order) => {
-                      
+
                             return (
 
                                 <section key={order.orderId} className="orderList">
@@ -141,14 +139,15 @@ export const OrderList = () => {
                                 </div> */}
                                     {/* <button
           onClick={(clickEvent) => {
-            handleSaveButtonClick(clickEvent);
-          }}
-          className="editCake"
-          >
-          Edit
+              handleSaveButtonClick(clickEvent);
+            }}
+            className="editCake"
+            >
+            Edit
         </button> */}
-
-                                </section>
+                                    
+                                    
+                                    </section>
                             );
                         })}
                     </article>

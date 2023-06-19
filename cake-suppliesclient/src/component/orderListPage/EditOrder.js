@@ -3,39 +3,35 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export const EditOrder = () => {
 
-    const { EditOrderId } = useParams();
-
     const [itemOrder, setItemOrder] = useState({
-        orderId: parseInt(EditOrderId),
+        id:0,
+        orderId: 0,
         itemId: 0,
         quantity: 0
     });
-
-    console.log("TEST: ", EditOrderId);
+    
+    
+    
+    const { id } = useParams();
     const navigate = useNavigate();
 
 
     const localProjectUser = localStorage.getItem("project_user");
     const projectUserObject = JSON.parse(localProjectUser);
 
-    // Display
-    console.log(itemOrder);
-    // useEffect(() => {
-    //     console.log(projectUserObject.id);
-    //     fetch(
-    //         `https://localhost:7005/api/OrderItems/${EditOrderId}`, {
-    //         method: "PUT",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(itemOrder)
-    //     })
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             console.log(data)
-    //             //setItemOrder(data[0]);
-    //         });
-    // }, []);
+    
+    useEffect(() => {
+        fetch(
+            `https://localhost:7005/api/OrderItems/${id}`
+            
+            
+            )
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                setItemOrder(data);
+            });
+    }, []);
 
     const handleSaveButtonClick = (e) => {
         e.preventDefault();
@@ -43,16 +39,15 @@ export const EditOrder = () => {
 
         //Edit
         // https://localhost:7005/api/OrderItems/1
+        //https://localhost:7005/api/OrderItems/68
 
-
-        return fetch(`https://localhost:7005/api/OrderItems/${EditOrderId}`, {
+        return fetch(`https://localhost:7005/api/OrderItems/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(itemOrder),
         })
-            .then((response) => response.json())
             .then(() => {
                 navigate("/order");
             });
@@ -64,20 +59,17 @@ export const EditOrder = () => {
 
 
 
-
-
-
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="quantity">Quantity:</label>
                     <select
-                        // value={itemOrder.itemId}
+                        value={itemOrder.quantity}
                         onChange={(evt) => {
                             const copy = itemOrder;
                             copy.quantity = parseInt(evt.target.value);
                             console.log("Copy: ", copy);
 
-                            setItemOrder(copy);
+                            //setItemOrder(copy);
                         }}
                     >
                         <option value="0"></option>
