@@ -112,9 +112,27 @@ export const AddOrder = () => {
                             <option value="5">5: Green Sheen Airbrush Color 4.5 oz</option>
                             <option value="6">6: Lavender Sheen Airbrush Color 4.5  oz</option>
                             <option value="7">7: Silve r Sheen Airbrush Color 4.5oz</option>
-                            <option value="8">8: Name: "Tall Window Cake Box  - White</option>
-                            <option value="9">9: Name: "Tall Window Cake Box  - White</option>
-                            <option value="10">10: Name: "Cupcake Boxes Mockup</option>
+                            <option value="8">8: Name: Tall Window Cake Box  - White</option>
+                            <option value="9">9: Cupcake Boxes Mockup</option>
+                            <option value="10">10: Name: Cupcake Boxes Mockup</option>
+                            <option value="10">10: Name: OXO Good Grips Offset Icing Spatula</option>
+                            <option value="11">10: Name: KitchenAid Artisan Serie s Stand Mixer</option>
+                            <option value="12">10: Name: FONDANT AMOUNTS TO COVER CAKES</option>
+                            <option value="13">10: Name: merckens  milk chocolate wafers</option>
+                            <option value="14">10: Name: Fondant</option>
+                            <option value="15">10: Name: Fondant</option>
+                            <option value="16">10: Name: Fondant</option>
+                            <option value="17">10: Name: Fondant</option>
+                            <option value="18">10: Name: Fondan t</option>
+                            <option value="19">10: Name: Candy</option>
+                            <option value="20">10: Name: Round Table</option>
+                            <option value="21">10: Name: Decorating Tool Set</option>
+                            <option value="22">10: Name: cake decorat ing tool set</option>
+                            <option value="23">10: Name: Cake Nozzle</option>
+
+
+
+
 
                         </select>
                     </div>

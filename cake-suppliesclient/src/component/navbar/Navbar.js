@@ -1,7 +1,8 @@
 import React from "react";
 import { AdminNavbar } from "./AdminNavbar";
 import { CustomerNavbar } from "./CustomerNavbar";
-import "./Navbar.css"
+import "./AdminNavbar.css"
+import "./CustomerNavbar.css";
 
 export const Navbar = () => {
     const localProjectUser = localStorage.getItem("project_user")

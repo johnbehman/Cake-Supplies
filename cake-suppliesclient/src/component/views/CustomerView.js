@@ -17,6 +17,7 @@ import { SearchBar } from "../prouctsPage/SearchBar";
 
 
 
+
 export const CustomerView = () => {
   return (
     <React.StrictMode>
@@ -47,11 +48,13 @@ export const CustomerView = () => {
           <Route path="addOrder" element={<AddOrder />} />
           <Route path="bakingSupplies" element={<BakingSupplies />} />
           <Route path="edibles" element={<Edibles />} />
-          <Route path="order/:EditOrderId" element={<EditOrder />} />
+          <Route path="order/:id" element={<EditOrder />} />
           <Route path="editOrder" element={<EditOrder />} />
           <Route path="searchBar" element={<SearchBar />} />
-          <Route path="itemDetails/:EditOrderId" element={<ItemDetails />} />
-          <Route path="order/:orderId" element={<OrderList />} />
+          <Route path="itemDetails" element={<ItemDetails />} />
+
+
+          
 
 
 

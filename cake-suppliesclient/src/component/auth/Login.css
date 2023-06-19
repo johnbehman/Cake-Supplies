@@ -77,6 +77,7 @@ h2{
   text-align: center;
   margin-left: 40px;
   font-size: xx-large;
+  
 }
 
 
@@ -125,4 +126,9 @@ button{
   height: calc(1.5em + 0.75rem + 1px);
   width: 7.75rem ;
   border-radius: 8.25rem;
+}
+
+
+.nameHeader{
+  
 }

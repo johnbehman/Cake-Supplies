@@ -1,0 +1,107 @@
+
+
+.navBarLinks {
+position: fixed;
+    display: flex;
+    flex-direction: row;
+    /* position: absolute; */
+    right: 10px;
+    background-color: rgb(152, 133, 109);
+    padding-left: 40%;
+}
+
+
+
+
+.navbar {
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
+
+.navbar__logout {
+    margin-left: auto;
+  
+
+}
+
+.navbar__item {
+    border: 1px solid rgb(173, 137, 137);
+    background-color: rgb(246, 248, 239);
+    margin: 10px 10px;
+    min-height: 3vh;
+    max-height: 5vh;
+    min-width: 10vw;
+    max-width: 2vw;
+    border-radius: 5px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(222, 208, 226);
+    
+
+}
+
+
+
+.navbar__item:hover {
+    
+    cursor: pointer;
+    transform: scale(1.05);
+    
+}
+
+.navbar__link {
+    color: rgb(41, 4, 5);
+    text-decoration: rgb(209, 192, 192);
+    font-family: "Glegoo", serif;
+    
+    
+}
+
+.navbar__item {
+    margin-top: 5%;
+    
+}
+
+
+
+
+
+
+.navLink {
+    transition: all 0.5s;
+    font-family: "Glegoo", "Roboto", "Open sans", "sans-serif";
+    font-size: larger;
+    color: aliceblue;
+    
+    
+    
+}
+
+.navLink:hover {
+    color: #0b1c3b;
+    transition: all 0.5s;
+    
+}
+
+.navLink:active {
+    color: #000;
+}
+
+.App{
+    margin-right: 30%;
+    
+}
+
+/* .navbar__item active{
+    background-color: bisque;
+
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');
+
+
