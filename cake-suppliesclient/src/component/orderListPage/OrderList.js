@@ -29,27 +29,11 @@ export const OrderList = () => {
         itemId: 0,
         quantity: 0
     });
-    // =========================================
-    //useEffect(() => {
-    //     fetch(
-    //         `https://localhost:7005/api/OrderItems/${id}`
 
-
-    //         )
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             console.log(data)
-    //             setItemOrder(data);
-    //         });
-    // }, []);
 
     const handleSaveButtonClick = (e) => {
         e.preventDefault();
 
-
-        //Edit
-        // https://localhost:7005/api/OrderItems/1
-        //https://localhost:7005/api/OrderItems/68
 
         fetch(`https://localhost:7005/api/OrderItems/${id}`, {
             method: "PUT",
@@ -62,11 +46,6 @@ export const OrderList = () => {
                 navigate("/order");
             });
     };
-
-
-
-    // =========================================
-
 
 
     useEffect(() => {//https://localhost:7005/api/Order/GetById/1
@@ -82,9 +61,6 @@ export const OrderList = () => {
 
         fetchData();
     }, [needRefresh]);
-
-    //https://localhost:7005/api/OrderItems/DeleteOrderById/36
-
 
     const deleteButton = (orderId) => {
 
@@ -129,12 +105,9 @@ export const OrderList = () => {
                             return (
 
                                 <section key={order.orderId} className="orderList">
-                                    {/* <p>{order.address} - {order.imageUrl} square feet</p> */}
                                     <div>
                                         <div className="font-list">
-                                            {/* < className="order" src={order.id} alt="wedding cake" /> */}
                                             <div>
-                                                {/* <p>Name: {order.name} </p> */}
                                                 <Link to={`/order/${order.orderId}`}>Name: {order.customerName} </Link>
                                             </div>
 
@@ -165,31 +138,10 @@ export const OrderList = () => {
                                                 <p>Category: {order.category}</p>
                                             </div>
 
-
-
-
-
-
                                         </div>
                                     </div>
 
-
-
-                                    {/* <div >
-                                    <button className="create-bt" onClick={() => navigate(`/order/${Order.id}`)}>Create order</button>
-                                </div> */}
-                                    {/* <button
-          onClick={(clickEvent) => {
-              handleSaveButtonClick(clickEvent);
-            }}
-            className="editCake"
-            >
-            Edit
-        </button> */}
-
                                     <form className="cakeForm">
-
-
 
                                         <fieldset>
                                             <div className="form-group">

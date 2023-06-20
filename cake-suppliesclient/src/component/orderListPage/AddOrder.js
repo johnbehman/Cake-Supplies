@@ -10,7 +10,6 @@ export const AddOrder = () => {
 
 
     const navigate = useNavigate()
-    // const {ordersId} = useParams()
 
     const localProjectUser = localStorage.getItem("project_user");
     const projectUserObject = JSON.parse(localProjectUser);
@@ -137,52 +136,6 @@ export const AddOrder = () => {
                         </select>
                     </div>
                 </fieldset>
-
-                {/* { Category: "coloring", Name:  "Ivory Amerimist Air Brush Color"}, 
-    { Category: "coloring", Name: "Copper Amerimist Airbrush Color 4.5 oz."}, 
-    { Category: "coloring", Name: "Lemon Yellow Amerimist Airbrush Color 4.5 oz. "},
-    { Category: "coloring", Name: "Green Sheen Amerimist Airbrush Col or 4.5 oz."},
-    { Category: "coloring", Name: "Green Sheen Airbrush Color 4.5 oz"}, 
-    { Category: "coloring", Name: "Lavender Sheen Airbrush Color 4.5  oz"},
-    { Category: "coloring",Name:" Silve r Sheen Airbrush Color 4.5oz"} ,
-    { Category: "BakingSupplies", Name: "Tall Window Cake Box  - White"},
-    { Category: "BakingSupplies", Name: "Cupcake Boxes Mockup"}, 
-    { Category: "BakingSupplies", Name: "OXO Good Grips Offset Icing Spatula"}, 
-    { Category: "BakingSup plies ",Name:"KitchenAid Artisan Serie s Stand Mixer"},
-    { Category: "Edibles", Name: "FONDANT AMOUNTS TO COVER CAKES" },
-    { Category: "Edibles", Name: "merckens  milk chocolate wafers"},
-    { Category: "Edibles", Name: "Fondant" },
-    { Category: "Edibles", Name: "Fondant" },
-    { Category: "Edibles", Name: "Fondant" },
-    { Category: "Edibles", Name: "Fondant" },
-    { Category: "Edibles", Name: "Fondan t"},
-    { Category: "Edibles",Name:"Ca ndy"} , 
-    { Category: "DecoratingTools", Name: "Round Table"}, 
-    { Category: "DecoratingTools", Name: "Fondant Rolling"}, 
-    { Category: "DecoratingTools", Name: "Decorating Tool Set"}, 
-    { Category: "DecoratingTools", Name: "cake decorat ing tool set"},
-      {Category:"DecoratingTools",Name:"Cake Nozzle"}, */}
-
-
-                {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="item">pickUpDate:</label>
-                    <input
-                        required
-                        autoFocus
-                        type="text"
-                        // className="form-control"
-
-                        // value={order.name}
-                        // value="monkey"
-                        onChange={(evt) => {
-                            const copy = { ...order };
-                            copy.pickUpDate = evt.target.value;
-                            update(copy);
-                        }}
-                    />
-                </div>
-            </fieldset> */}
 
 
                 <button

@@ -15,7 +15,7 @@ namespace Cake_Supplies.Repository
 
 
         //===============================================
-        public Items SearchItemsByName(string Name)
+        public List<Items>  SearchItemsByName(string Name)
         {
             using (var conn = Connection)
             {
@@ -28,28 +28,28 @@ namespace Cake_Supplies.Repository
                                       ,[description]
                                       ,[category]
                                   FROM [dbo].[Items]
-                                  where Items.name = @name";
-                    // where Items.name = @name";
+                                  where Items.name Like @name";
+                    //where Items.name = @name";
 
 
-                    DbUtils.AddParameter(cmd, "@name", Name);
+                    DbUtils.AddParameter(cmd, "@name", $"%{Name}%");
                     var reader = cmd.ExecuteReader();
-                    Items items = null;
+                    var items = new List<Items>();
                     while (reader.Read())
                     {
-                        if (items == null)
-                        {
-                            items = new Items()
-                            {
-                                Id = DbUtils.GetInt(reader, "ItemsId"),
 
-                                Name = DbUtils.GetString(reader, "name"),
-                                Description = DbUtils.GetString(reader, "description"),
-                                ImageUrl = DbUtils.GetString(reader, "imageUrl"),
-                                Category = DbUtils.GetString(reader, "category"),
-                            };
-                        }
+                        var item = new Items()
+                        {
+                            Id = DbUtils.GetInt(reader, "ItemsId"),
+                            Name = DbUtils.GetString(reader, "name"),
+                            Description = DbUtils.GetString(reader, "description"),
+                            ImageUrl = DbUtils.GetString(reader, "imageUrl"),
+                            Category = DbUtils.GetString(reader, "category"),
+                        };
+                        items.Add(item);    
                     }
+
+                    
                     reader.Close();
                     return items;
 

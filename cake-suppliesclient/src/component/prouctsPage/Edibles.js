@@ -23,9 +23,6 @@ export const Edibles = () => {
     )
 
 
-
-
-
     return (
         <>
             <div className="edible-background">
@@ -36,10 +33,7 @@ export const Edibles = () => {
                     {
                         edibles.map(
                             (edibles) => {
-                                return <section key={edibles.orderId} >
-                                    <div>
-                                        <Link to={`/itemDetails/${edibles.orderId}`}>Name: {edibles.Name} </Link>
-                                    </div>
+                                return <section key={edibles.Name} >
 
                                     <div>
                                         <img className="edible" src={edibles.imageUrl} alt="Edibles" />
