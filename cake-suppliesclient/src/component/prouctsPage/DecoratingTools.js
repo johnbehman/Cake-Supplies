@@ -2,6 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react"
 import "./DecoratingTools.css";
 
+const localProjectUser = localStorage.getItem("project_user");
+const projectUserObject = JSON.parse(localProjectUser);
+
+
 export const DecoratingTools = () => {
     const [decoratingTools, setDecoratingTools] = useState([])
 
@@ -17,9 +21,6 @@ export const DecoratingTools = () => {
         },
         []
     )
-
-
-
 
 
     return (
@@ -38,12 +39,15 @@ export const DecoratingTools = () => {
                                             <img className="decoratingImage" src={decoratingTools.imageUrl} alt="DecoratingTools" />
 
                                         </div>
-                                        <div className="ContainerDetails"> 
-                                        <div className="stylingName">Name: {decoratingTools.name}</div>
-                                        <div className="descriptionBox">Description: {decoratingTools.description}</div>
-                                        <div>Category: {decoratingTools.category}</div>
+                                        <div className="ContainerDetails">
+                                            <div className="stylingName">Name: {decoratingTools.name}</div>
+                                            <div className="descriptionBox">Description: {decoratingTools.description}</div>
+                                            <div>Category: {decoratingTools.category}</div>
                                         </div>
                                     </div>
+
+
+
                                 </section>
                             }
                         )

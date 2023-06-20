@@ -19,9 +19,6 @@ export const BakingSupplies = () => {
     )
 
 
-
-
-
     return (
         <>
             <div className="bakingSupplies-background">

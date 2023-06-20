@@ -65,7 +65,7 @@ export const CustomerNavbar = () => {
 
                         <div className="navbar__item active">
                             <i className="fa fa-search" aria-hidden="true"> </i>
-                            <Link className="navbar__link" to="/SearchBar">
+                            <Link className="navbar__link" to="/searchBar">
                                 Search
                             </Link>
                         </div>

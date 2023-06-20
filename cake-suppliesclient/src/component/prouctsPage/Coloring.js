@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react"
 import "./Coloring.css";
+import { AddOrder } from "../orderListPage/AddOrder";
 
 
 
@@ -24,9 +25,6 @@ export const Coloring = () => {
     );
 
 
-
-
-
     return (
         <>
             <div className="coloring-background">
@@ -41,9 +39,6 @@ export const Coloring = () => {
                             (coloring) => {
 
 
-
-
-
                                 return <section className="colorInfo"key={coloring.id} >
                           
 
@@ -52,12 +47,12 @@ export const Coloring = () => {
                                         <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" />
                                         </div>
 
+        
                                      <div className="ContainerDetails">    
                                       <div className="stylingName">Name: {coloring.name}</div>
                                         <div className="descriptionBox">Description: {coloring.description}</div>
                                         <div>Category: {coloring.category}</div>
                                         </div>
-           
                                     </div>
 
                                 </section>

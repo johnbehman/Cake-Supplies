@@ -102,16 +102,9 @@ namespace Cake_Supplies.Controllers
         [HttpGet("SearchItemsByName")]
         public IActionResult SearchItemsById(string Name)
         {
-            if (Name == null)
-            {
-                return BadRequest();
-            }
-            Items items = _itemsRepository.SearchItemsByName(Name);
-            if (items == null)
-            {
-                return NotFound($"{Name} Not Found!");
-            }
-            return Ok(items);
+          
+            return Ok(_itemsRepository.SearchItemsByName(Name));
+          
 
 
 

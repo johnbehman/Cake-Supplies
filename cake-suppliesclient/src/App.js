@@ -8,8 +8,9 @@ function App() {
     <div className="App">
 
         {/* <Home/> */}
-                <SearchBar/>
-
+        <div classname='App'>
+       <SearchBar/>
+     </div>
 
       
       <header className="App-header">
