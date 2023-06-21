@@ -11,9 +11,9 @@ import { OrderList } from "../orderListPage/OrderList";
 import { AddOrder } from "../orderListPage/AddOrder";
 import { EditOrder } from "../orderListPage/EditOrder";
 // import { CustomerSearch } from "../prouctsPage/CustomerSearch";
-import { ItemDetails } from "../prouctsPage/ItemDetails";
 import { Coloring } from "../prouctsPage/Coloring";
 import { SearchBar } from "../prouctsPage/SearchBar";
+import { ItemDetails } from "../prouctsPage/ItemDetails";
 
 
 
@@ -52,7 +52,7 @@ export const CustomerView = () => {
           <Route path="order/:id" element={<EditOrder />} />
           <Route path="editOrder" element={<EditOrder />} />
           <Route path="searchBar" element={<SearchBar />} />
-          <Route path="itemDetails" element={<ItemDetails />} />
+          <Route path="itemDetails/:itemId" element={<ItemDetails />} />
 
 
 

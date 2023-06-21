@@ -2,11 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react"
 import "./Coloring.css";
 import { AddOrder } from "../orderListPage/AddOrder";
+import { useNavigate } from "react-router-dom";
 
 
 
 export const Coloring = () => {
     const [coloring, setColoring] = useState([])
+const navigate = useNavigate()
+
 
     const localProjectUser = localStorage.getItem("project_user")
     const localUserObject = JSON.parse(localProjectUser)
@@ -24,6 +27,38 @@ export const Coloring = () => {
         []
     );
 
+    const handleSaveButtonClick = async (coloring) => {
+const response = await fetch (`https://localhost:7005/api/Order/GetById/${localUserObject.id}`)
+const currentOrder = await response.json()
+        const orderToSendAPI = {
+            customerId: localUserObject.id,
+            pickUpDate:  currentOrder[0].pickUpDate,                       
+            orderItems: {
+                itemId: coloring.id,
+                quantity: 1,
+            }
+        };
+
+
+
+
+
+        return fetch(`https://localhost:7005/AddOrder`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderToSendAPI),
+        })
+            .then((response) => response.json())
+            .then(() => {
+                navigate("/order");
+            });
+    };
+
+
+
+
 
     return (
         <>
@@ -39,19 +74,26 @@ export const Coloring = () => {
                             (coloring) => {
 
 
-                                return <section className="colorInfo"key={coloring.id} >
-                          
+                                return <section className="colorInfo" key={coloring.id} >
+
 
                                     <div className="text">
-                                    <div>
-                                        <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" />
+                                        <div>
+
+                                            <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" />
+
+                                            <button onClick={() => {
+
+                                                handleSaveButtonClick(coloring)
+                                            }
+                                            }>Add to Cart</button>
                                         </div>
 
-        
-                                     <div className="ContainerDetails">    
-                                      <div className="stylingName">Name: {coloring.name}</div>
-                                        <div className="descriptionBox">Description: {coloring.description}</div>
-                                        <div>Category: {coloring.category}</div>
+
+                                        <div className="ContainerDetails">
+                                            <div className="stylingName">Name: {coloring.name}</div>
+                                            <div className="descriptionBox">Description: {coloring.description}</div>
+                                            <div>Category: {coloring.category}</div>
                                         </div>
                                     </div>
 
@@ -61,7 +103,7 @@ export const Coloring = () => {
                     }
                 </article> </div>
 
-                
+
         </>
     );
 };
