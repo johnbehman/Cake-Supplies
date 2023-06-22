@@ -6,6 +6,7 @@
     flex-direction: row;
     position: absolute;
     right: 10px;
+;
 }
 
 
@@ -55,7 +56,19 @@
 }
 
 .navbar__item {
-    margin-top: 5%;
+    border: 1px solid rgb(173, 137, 137);
+    background-color: rgb(246, 248, 239);
+    margin: 10px 10px;
+    min-height: 3vh;
+    max-height: 5vh;
+    min-width: 10vw;
+    max-width: 2vw;
+    border-radius: 5px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(222, 208, 226);
 }
 
 
@@ -68,6 +81,7 @@
     font-family: "Glegoo", "Roboto", "Open sans", "sans-serif";
     font-size: larger;
     color: aliceblue;
+    margin-left: 20%;
     
 }
 
@@ -90,3 +104,17 @@
 
 } */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');
+.LoginImage{
+    float:inline-start;
+    padding-right:cm;
+    background-color: rgb(201, 217, 232);
+    border: 2px solid red;
+    border-radius: 1px 130px / 180px;
+}
+
+
+.prjectHeder {
+    color: rgb(219, 207, 207);
+    font-family: 'Sansita Swashed', cursive;
+    padding-right:1cm;
+}

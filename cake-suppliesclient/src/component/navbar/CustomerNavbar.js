@@ -6,6 +6,8 @@ import "./CustomerNavbar.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import logo from "../images/logo.png";
+
 
 export const CustomerNavbar = () => {
     const navigate = useNavigate();
@@ -15,11 +17,14 @@ export const CustomerNavbar = () => {
             <div className="navImgContainer">
                 <div className="navBarLinks">
 
-
-
-
-
-
+                <div className="mainLogo">
+                    <div >
+                        <img className="LoginImage" src={logo} alt="logo" />
+     
+                    </div>
+                </div>
+                <br/>
+ <h1 className="prjectHeder">Nashville Cake-Supplies</h1>
 
                     <Dropdown className="navbar__item active">
                         <Dropdown.Toggle variant=" primary" id="dropdown-basic">

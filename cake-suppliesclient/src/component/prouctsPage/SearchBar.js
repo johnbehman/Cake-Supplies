@@ -15,18 +15,17 @@ export const SearchBar = () => {
     if (searchInput) {
       fetch(
         `https://localhost:7005/api/Items/SearchItemsByName?Name=${searchInput}`
-  
-  
+
+
       )
         .then((response) => response.json())
         .then((data) => {
           console.log(data)
           setItems(data);
         });
-        
+
     }
-    else
-    {
+    else {
       setItems([])
     }
   }, [searchInput]);
@@ -41,30 +40,32 @@ export const SearchBar = () => {
 
   return (
 
-    <div>
- <Form className="d-flex">
-            <Form.Control
-              type="search"
+    <div className="mainSearchBar">
+      <Form className="d-flex">
+        <Form.Control
+          type="search"
+          placeholder="Search"
+          onChange={handleChange}
+          value={searchInput}
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-success">
+          <i className="fa fa-search" aria-hidden="true"> </i>
+          Search</Button>
 
-              placeholder="Search"
-              onChange={handleChange}
-        value={searchInput}
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+      </Form>
       {/* <input
         type="search"
         placeholder="Search here"
         onChange={handleChange}
         value={searchInput} /> */}
 
-        <div className="edible-background">
-         
-          <article className="edibles" >
-           {
-             items.length === 0 ? "" :
+      <div className="edible-background">
+
+        <article className="edibles" >
+          {
+            items.length === 0 ? "" :
 
               items.map(
                 (item) => {
@@ -85,10 +86,10 @@ export const SearchBar = () => {
                   </section>
                 }
               )
-            }
-          </article> </div></div>
-      
-    
+          }
+        </article> </div></div>
+
+
   );
 
 
