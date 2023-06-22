@@ -1,11 +1,30 @@
 import React from "react";
 import "./AboutUs.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import logo from "../images/logo.png"
+import img1 from "../images/img1.png"
+
+
 
 export const AboutUs = () => {
     return (
         <>
-            <div className="">
-                <div className="">
+
+
+{/* <Carousel className="main-Slide">
+                <div>
+                    <img src={img1} height="300px" width="200px"/>
+                </div>
+                <div>
+                    <img src={logo} height="300px" width="200px"/>
+                </div>
+                <div>
+                    <img src="assets/3.jpeg" height="300px" width="200px" />
+                </div>
+            </Carousel> */}
+            <div className="mainAboutUs">
+                <div className="mainPar">
                     <h2 className="headerAboutUs">About Us</h2>
                     <div className="">
                        <p className="info-paragraph">

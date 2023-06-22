@@ -1,11 +1,12 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');
 
 
-.info-paragraph{
+.info-paragraph {
   width: 1000px;
-  padding: 60px;
-  margin-left: 17%;
+  margin-top: 20%;
+  padding: 90px;
+  margin-left: 30%;
+  margin-bottom: 30%;
   background-color: antiquewhite;
   border-color: rgb(206, 89, 47);
   border: 6px solid rgb(203, 158, 201);
@@ -13,17 +14,57 @@
   font-family: 'Sansita Swashed', cursive;
 
 }
+
 .aboutUsContainer {
-  padding-top: 5%;
+  padding-top: 60%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  top: -40px;
   position: relative;
   justify-content: center;
 
 }
-.headerAboutUs{
+
+.headerAboutUs {
   font-family: 'Sansita Swashed', cursive;
-color: brown;
+  color: brown;
+  margin-bottom: -18%;
+  margin-left: 50%;
+
+
+}
+
+.d-block {
+  margin-left: 25%;
+}
+
+.main-Slide {
+  padding-top: 30px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+
+.carousel .slider-wrapper {
+  width: 50%;
+}
+
+
+
+
+
+
+
+.carousel .d-block {
+  width: 5%;
+  height: 30%;
+}
+
+.mainAboutUs {
+  background-image: url(../images/img9.avif);
+  padding-bottom: 40%;
+  background-repeat: no-repeat;
+  padding-top: 5%;
+  margin-right: 10cm;
+
 }

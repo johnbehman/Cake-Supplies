@@ -3,9 +3,18 @@
     padding-right: 20%;
     margin-top: -11%;
     padding-bottom: 10%;
-    
+    margin-top: 5%;
+
 }
 
-html{
-    background-color: rgb(205, 236, 227);
+.mainSearchBar{
+    background-image: url(../images/image15.jpg);
+    padding-bottom: 30%;
+/* background-size: 70ch; */
+
+background-size: cover;
+    background-repeat: no-repeat;
+
+
+    padding-top: 5%;
 }

@@ -18,9 +18,7 @@ export const AdminView = () => {
                 path="/"
                 element={
                     <>
-                        <div className="formHeader">
-                            <h1>Cake Supplies</h1>
-                        </div>
+            
                         <Outlet />
                     </>
                 }

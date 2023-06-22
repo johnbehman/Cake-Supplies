@@ -2,6 +2,7 @@
 import React from "react"
 import "./AdminNavbar.css"
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../images/logo.png";
 
 import { Dropdown } from 'react-bootstrap';
 
@@ -15,8 +16,18 @@ export const AdminNavbar = () => {
         <div className="navImgContainer">
             <div className="navBarLinks">
 
-                <div className="navBarLinks">
 
+
+
+
+                <div className="mainLogo">
+                    <div >
+                        <img className="LoginImage" src={logo} alt="logo" />
+     
+                    </div>
+                </div>
+                <br/>
+ <h1 className="prjectHeder">Nashville Cake-Supplies</h1>
                     <Dropdown className="navbar__item active">
                         <Dropdown.Toggle variant=" primary" id="dropdown-basic">
                             Category
@@ -95,7 +106,7 @@ export const AdminNavbar = () => {
                 </div>
             </div>
 
-        </div>
+        
 
     );
 };

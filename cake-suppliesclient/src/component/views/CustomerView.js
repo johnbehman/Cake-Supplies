@@ -27,10 +27,10 @@ export const CustomerView = () => {
           element={
             <>
               <div className="formHeader">
-                <div>
+                {/* <div>
                   <img className="LoginImage" src={logo} alt="logo"/>
-                </div>
-                <h1>Cake Supplies</h1>
+                </div> */}
+                {/* <h1>Cake Supplies</h1> */}
               </div>
               <Outlet />
             </>

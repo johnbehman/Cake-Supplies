@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import "./Coloring.css";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
+import logo from "../images/logo.png";
+
 
 
 
@@ -65,6 +67,16 @@ export const Coloring = () => {
 
 
             <div className="coloring-background">
+
+                {/* <div>
+                    <div className="mainLogo">
+                        <img className="LoginImage" src={logo} alt="logo" />
+
+                        <div className="prjectHeder">
+                            <h1>Nashville Cake-Supplies</h1>
+                        </div>
+                    </div>
+                </div> */}
                 <div className="coloring_h1">
 
                     <h1>Coloring</h1>
