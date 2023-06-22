@@ -92,7 +92,7 @@ export const DecoratingTools = () => {
 
                                         <div className="ContainerDetails">
                                             <div className="stylingName">Name: {decoratingTool.name}</div>
-                                            <div className="descriptionBox">Description: {decoratingTool.description}</div>
+                                            {/* <div className="descriptionBox">Description: {decoratingTool.description}</div> */}
                                             <div>Category: {decoratingTool.category}</div>
                                         </div>
                                     </div>

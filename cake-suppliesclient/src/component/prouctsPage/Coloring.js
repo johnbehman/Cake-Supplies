@@ -111,7 +111,7 @@ export const Coloring = () => {
 
                                         <div className="ContainerDetails">
                                             <div className="stylingName">Name: {coloring.name}</div>
-                                            <div className="descriptionBox">Description: {coloring.description}</div>
+                                            {/* <div className="descriptionBox">Description: {coloring.description}</div> */}
                                             <div>Category: {coloring.category}</div>
                                         </div>
                                     </div>
