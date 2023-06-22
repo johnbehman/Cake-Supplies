@@ -1,14 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react"
 import "./Coloring.css";
-import { AddOrder } from "../orderListPage/AddOrder";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom"
+import Button from 'react-bootstrap/Button';
 
 
 
 export const Coloring = () => {
     const [coloring, setColoring] = useState([])
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
     const localProjectUser = localStorage.getItem("project_user")
@@ -28,11 +28,11 @@ const navigate = useNavigate()
     );
 
     const handleSaveButtonClick = async (coloring) => {
-const response = await fetch (`https://localhost:7005/api/Order/GetById/${localUserObject.id}`)
-const currentOrder = await response.json()
+        const response = await fetch(`https://localhost:7005/api/Order/GetById/${localUserObject.id}`)
+        const currentOrder = await response.json()
         const orderToSendAPI = {
             customerId: localUserObject.id,
-            pickUpDate:  currentOrder[0].pickUpDate,                       
+            pickUpDate: currentOrder[0].pickUpDate,
             orderItems: {
                 itemId: coloring.id,
                 quantity: 1,
@@ -62,6 +62,8 @@ const currentOrder = await response.json()
 
     return (
         <>
+
+
             <div className="coloring-background">
                 <div className="coloring_h1">
 
@@ -78,15 +80,20 @@ const currentOrder = await response.json()
 
 
                                     <div className="text">
+
                                         <div>
+                                            <Link to={`/itemDetails/${coloring.id}`}> <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" /></Link>
 
-                                            <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" />
 
-                                            <button onClick={() => {
+                                            {/* <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" /> */}
+
+                                            <Button variant="primary" onClick={() => {
 
                                                 handleSaveButtonClick(coloring)
                                             }
-                                            }>Add to Cart</button>
+                                            }><i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+                                                Add to Cart</Button>
                                         </div>
 
 

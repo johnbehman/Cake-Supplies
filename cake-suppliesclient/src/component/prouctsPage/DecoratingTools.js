@@ -2,14 +2,14 @@
 import React from "react";
 import { useEffect, useState } from "react"
 import "./DecoratingTools.css";
-import { AddOrder } from "../orderListPage/AddOrder";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 
 
 export const DecoratingTools = () => {
     const [decoratingTools, setDecoratingTools] = useState([])
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
     const localProjectUser = localStorage.getItem("project_user")
@@ -29,11 +29,11 @@ const navigate = useNavigate()
     );
 
     const handleSaveButtonClick = async (decoratingTools) => {
-const response = await fetch (`https://localhost:7005/api/Order/GetById/${localUserObject.id}`)
-const currentOrder = await response.json()
+        const response = await fetch(`https://localhost:7005/api/Order/GetById/${localUserObject.id}`)
+        const currentOrder = await response.json()
         const orderToSendAPI = {
             customerId: localUserObject.id,
-            pickUpDate:  currentOrder[0].pickUpDate,                       
+            pickUpDate: currentOrder[0].pickUpDate,
             orderItems: {
                 itemId: decoratingTools.id,
                 quantity: 1,
@@ -63,10 +63,10 @@ const currentOrder = await response.json()
 
     return (
         <>
-             <div className="decoratingTools-background">
-                 <div className="decorating_h1">
-                     <h1>Decorating Tools</h1>
-               </div>
+            <div className="decoratingTools-background">
+                <div className="decorating_h1">
+                    <h1>Decorating Tools</h1>
+                </div>
                 <article className="decorating" >
                     {
                         decoratingTools.map(
@@ -81,11 +81,12 @@ const currentOrder = await response.json()
 
                                             <img className="decoratingImage" src={decoratingTool.imageUrl} alt="AirBrushColors" />
 
-                                            <button onClick={() => {
+                                            <Button variant="primary" onClick={() => {
 
                                                 handleSaveButtonClick(decoratingTool)
                                             }
-                                            }>Add to Cart</button>
+                                            }>
+                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</Button>
                                         </div>
 
 

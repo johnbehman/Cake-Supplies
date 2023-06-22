@@ -8,8 +8,8 @@ import { AboutUs } from "../aboutUs/AboutUs";
 import { DecoratingTools } from "../prouctsPage/DecoratingTools";
 import logo from "../images/logo.png";
 import { OrderList } from "../orderListPage/OrderList";
-import { AddOrder } from "../orderListPage/AddOrder";
-import { EditOrder } from "../orderListPage/EditOrder";
+// import { AddOrder } from "../orderListPage/AddOrder";
+// import { EditOrder } from "../orderListPage/EditOrder";
 // import { CustomerSearch } from "../prouctsPage/CustomerSearch";
 import { Coloring } from "../prouctsPage/Coloring";
 import { SearchBar } from "../prouctsPage/SearchBar";
@@ -28,7 +28,7 @@ export const CustomerView = () => {
             <>
               <div className="formHeader">
                 <div>
-                  <img className="LoginImage" src={logo}/>
+                  <img className="LoginImage" src={logo} alt="logo"/>
                 </div>
                 <h1>Cake Supplies</h1>
               </div>
@@ -46,11 +46,11 @@ export const CustomerView = () => {
           <Route path="coloring" element={<Coloring />} />
           <Route path="decoratingTools" element={<DecoratingTools />} />
           <Route path="order" element={<OrderList />} />
-          <Route path="addOrder" element={<AddOrder />} />
+          {/* <Route path="addOrder" element={<AddOrder />} /> */}
           <Route path="bakingSupplies" element={<BakingSupplies />} />
           <Route path="edibles" element={<Edibles />} />
-          <Route path="order/:id" element={<EditOrder />} />
-          <Route path="editOrder" element={<EditOrder />} />
+          {/* <Route path="order/:id" element={<EditOrder />} /> */}
+          {/* <Route path="editOrder" element={<EditOrder />} /> */}
           <Route path="searchBar" element={<SearchBar />} />
           <Route path="itemDetails/:itemId" element={<ItemDetails />} />
 

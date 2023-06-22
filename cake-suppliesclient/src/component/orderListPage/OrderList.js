@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom"
 import "./OrderList.css";
+import Card from 'react-bootstrap/Card';
 
-
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -65,7 +66,9 @@ export const OrderList = () => {
     const deleteButton = (orderId) => {
 
         return (
-            <button
+
+
+            <Button variant="danger"
                 onClick={() => {
                     fetch(
                         `https://localhost:7005/api/OrderItems/DeleteOrderById/${orderId}`,
@@ -79,8 +82,10 @@ export const OrderList = () => {
                 }}
                 className="delete"
             >
-                DELETE
-            </button>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                 
+            </Button>
+
         );
 
     };
@@ -89,6 +94,12 @@ export const OrderList = () => {
 
     return (
         <>
+
+
+
+
+
+
             <div className="mainpage">
 
 
@@ -156,8 +167,8 @@ export const OrderList = () => {
                                                         //setItemOrder(copy);
                                                     }}
                                                 >
-                                                    <option value="0"></option>
-                                                    <option value="1" >1</option>
+                                                    <option value={order.quantity}>{order.quantity}</option>
+                                                    <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="4">4</option>

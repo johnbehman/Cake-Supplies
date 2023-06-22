@@ -17,12 +17,13 @@ export const ItemDetails = () => {
             const fetchData = async () => {
                 const response = await fetch(`https://localhost:7005/api/Items/GetById/${itemId}`)
                 const singleItem = await response.json();
+                console.log(singleItem);
                 setDetails(singleItem);
             }
             fetchData();
 
 
-        }, [itemId]
+        }, []
     );
 
 
@@ -40,20 +41,17 @@ export const ItemDetails = () => {
             </div>
 
             <section
-                key={`detail--${details.Id}`}>
+                >
 
                         <div>
                             <img className="edible" src={details.imageUrl} alt="Edibles" />
-
                         </div>
                         <div className="ContainerDetails">
                             <div className="stylingName">Name: {details.name}</div>
                             <div className="descriptionBox">Description: {details.description}</div>
-                            <div>Category: {details.category}</div>
+                            <div className="categoryBox">Category: {details.category}</div>
                         </div>
-                    </section>
-
-                
+                    </section>                
         </>
     );
 };
