@@ -135,7 +135,7 @@ export const OrderList = () => {
                                             <div>
                                                 <p>Email: {order.email}</p>
                                             </div>
-                                            <div>
+                                            <div className="quantatiyLable">
                                                 <p>Quantity: {order.quantity}</p>
                                             </div>
                                             <div >

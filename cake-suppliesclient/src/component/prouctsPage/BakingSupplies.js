@@ -75,25 +75,25 @@ export const BakingSupplies = () => {
                             (bakingSupplies) => {
                                 return <section key={bakingSupplies.id} >
 
+                                    <div >
+                                        <div >
+                                            <div className="smallBox">
 
-                                    <div className="text">
-                                        <div>
+                                                <img className="baking-sppl" src={bakingSupplies.imageUrl} alt="AirBrushColors" />
 
-                                            <img className="baking-sppl" src={bakingSupplies.imageUrl} alt="AirBrushColors" />
-
-                                            <Button variant="primary" onClick={() => {
-
-                                                handleSaveButtonClick(bakingSupplies)
-                                            }
+                                                <div className="stylingName">{bakingSupplies.name}</div>
+                                                <Button variant="primary" onClick={() => {
+                                                    
+                                                    handleSaveButtonClick(bakingSupplies)
+                                                }
                                             }><i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                                Add to Cart</Button>
-                                        </div>
+                                                    Add to</Button>
+                                            </div>
 
 
-                                        <div className="ContainerDetails">
-                                            <div className="stylingName">Name: {bakingSupplies.name}</div>
-                                            <div className="descriptionBox">Description: {bakingSupplies.description}</div>
-                                            <div>Category: {bakingSupplies.category}</div>
+
+                                            {/* <div className="descriptionBox">Description: {bakingSupplies.description}</div>
+                                            <div>Category: {bakingSupplies.category}</div> */}
                                         </div>
                                     </div>
 

@@ -62,11 +62,11 @@ export const CustomerNavbar = () => {
 
 
 
-                            <div className="navbar__item active">
+                            {/* <div className="navbar__item active">
                                 <Link className="navbar__link" to="/itemDetails">
                                     item Details
                                 </Link>
-                            </div>
+                            </div> */}
 
 
                         </Dropdown.Menu>

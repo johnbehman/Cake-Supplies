@@ -97,7 +97,7 @@ const currentOrder = await response.json()
 
                                         <div className="ContainerDetails">
                                             <div className="stylingName">Name: {edible.name}</div>
-                                            <div className="descriptionBox">Description: {edible.description}</div>
+                                            {/* <div className="descriptionBox">Description: {edible.description}</div> */}
                                             <div>Category: {edible.category}</div>
                                         </div>
                                     </div>
