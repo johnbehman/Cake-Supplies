@@ -1,6 +1,8 @@
-﻿using Cake_Supplies.Utils.cs;
+﻿using Cake_Supplies.Models;
+using Cake_Supplies.Utils.cs;
 using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 using Users = Cake_Supplies.Models.Users;
 
 namespace Cake_Supplies.Repository;
@@ -98,7 +100,6 @@ public class UsersRepository : BaseRepository
             return null;
         }
     }
-
 
     //===============================================================
 

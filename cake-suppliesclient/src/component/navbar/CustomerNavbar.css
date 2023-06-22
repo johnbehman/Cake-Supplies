@@ -8,6 +8,7 @@ position: fixed;
     right: 10px;
     background-color: rgb(152, 133, 109);
     padding-left: 40%;
+    z-index: 100;
 }
 
 

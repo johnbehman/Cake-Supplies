@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
-
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import "./SearchBar.css";
 
 export const SearchBar = () => {
 
@@ -41,12 +42,23 @@ export const SearchBar = () => {
   return (
 
     <div>
+ <Form className="d-flex">
+            <Form.Control
+              type="search"
 
-      <input
+              placeholder="Search"
+              onChange={handleChange}
+        value={searchInput}
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+      {/* <input
         type="search"
         placeholder="Search here"
         onChange={handleChange}
-        value={searchInput} />
+        value={searchInput} /> */}
 
         <div className="edible-background">
          
@@ -57,9 +69,9 @@ export const SearchBar = () => {
               items.map(
                 (item) => {
                   return <section key={item.orderId} >
-                    <div>
+                    {/* <div className="mainSearch">
                       <Link to={`/itemDetails/${item.orderId}`}>Name: {item.Name} </Link>
-                    </div>
+                    </div> */}
 
                     <div>
                       <img className="edible" src={item.imageUrl} alt="item" />
@@ -74,9 +86,9 @@ export const SearchBar = () => {
                 }
               )
             }
-          </article> </div>
+          </article> </div></div>
       
-    </div>
+    
   );
 
 

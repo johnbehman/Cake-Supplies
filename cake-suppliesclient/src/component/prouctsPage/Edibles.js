@@ -3,9 +3,11 @@
 import React from "react";
 import { useEffect, useState } from "react"
 import "./Coloring.css";
-import { AddOrder } from "../orderListPage/AddOrder";
+// import { AddOrder } from "../orderListPage/AddOrder";
 import { useNavigate } from "react-router-dom";
 import "./Edibles.css";
+import Button from 'react-bootstrap/Button';
+
 
 
 export const Edibles = () => {
@@ -84,11 +86,12 @@ const currentOrder = await response.json()
 
                                             <img className="edible" src={edible.imageUrl} alt="AirBrushColors" />
 
-                                            <button onClick={() => {
+                                            <Button variant="primary" onClick={() => {
 
                                                 handleSaveButtonClick(edible)
                                             }
-                                            }>Add to Cart</button>
+                                            }>
+                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</Button>
                                         </div>
 
 

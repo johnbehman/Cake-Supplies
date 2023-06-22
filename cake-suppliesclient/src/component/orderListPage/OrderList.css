@@ -2,7 +2,9 @@
     background-color: rgb(234, 217, 217);
 
 }
-
+.delete{
+margin-left: 40%;
+}
 
 .order_h1{
     font-family: 'Sansita Swashed', cursive;   
