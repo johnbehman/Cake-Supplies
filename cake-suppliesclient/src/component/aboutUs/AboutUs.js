@@ -25,6 +25,7 @@ export const AboutUs = () => {
             </Carousel> */}
             <div className="mainAboutUs">
                 <div className="mainPar">
+                
                     <h2 className="headerAboutUs">About Us</h2>
                     <div className="">
                        <p className="info-paragraph">

@@ -86,14 +86,14 @@ export const DecoratingTools = () => {
                                                 handleSaveButtonClick(decoratingTool)
                                             }
                                             }>
-                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</Button>
+                                                <i className="fa fa-cart-plus" aria-hidden="true"></i>Add to</Button>
                                         </div>
 
 
                                         <div className="ContainerDetails">
-                                            <div className="stylingName">Name: {decoratingTool.name}</div>
+                                            <div className="stylingName">{decoratingTool.name}</div>
                                             {/* <div className="descriptionBox">Description: {decoratingTool.description}</div> */}
-                                            <div>Category: {decoratingTool.category}</div>
+                                            {/* <div>Category: {decoratingTool.category}</div> */}
                                         </div>
                                     </div>
 

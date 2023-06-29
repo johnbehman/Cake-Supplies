@@ -1,11 +1,12 @@
 .edible {
-    background-color: rgb(231, 238, 186);
+    background-color: rgb(53, 54, 49);
     border: 2px dotted fuchsia;
-    color: rgb(150, 124, 124);
+    color: rgb(232, 212, 212);
     padding: 0.75rem;
     margin: 0.5rem;
     width: 200px;
     height: 200px;
+   
 }
 .edibles{
     display: flex;
@@ -14,13 +15,20 @@
     justify-content: space-evenly;
 }
 .edibles_h1{
+
     font-family: 'Sansita Swashed', cursive;
     color: rgb(228, 227, 215);
-    margin-top: 5%;
+    margin-top: 6%;
     background-color: rgb(88, 134, 213);
     text-align: center;
+   
 
 }
+.edible:hover {
 
+    cursor: pointer;
+    transform: scale(1.50);
+
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');

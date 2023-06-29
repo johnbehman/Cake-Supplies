@@ -20,7 +20,7 @@ margin-left: 40%;
     
 } */
 .OrderImage{
-    background-color: rgb(231, 238, 186);
+    background-color: rgb(187, 68, 4);
     border: 2px dotted fuchsia;
     color: black;
     padding: 0.75rem;
@@ -48,6 +48,8 @@ margin-left: 40%;
   
 }
 .quantatiyLable{
-    background-color: rgb(9, 9, 9);
+    background-color: rgb(19, 19, 18);
     color: rgb(175, 187, 44);
+    font-size:x-large;
+    padding-left: 20%;
 }

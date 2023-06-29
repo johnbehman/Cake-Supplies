@@ -100,19 +100,19 @@ export const Coloring = () => {
                                             {/* <img className="coloring" src={coloring.imageUrl} alt="AirBrushColors" /> */}
 
                                             <Button variant="primary" onClick={() => {
-
+                                                
                                                 handleSaveButtonClick(coloring)
                                             }
-                                            }><i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        }><i className="fa fa-cart-plus" aria-hidden="true"></i>
 
-                                                Add to Cart</Button>
+                                               Add to</Button> 
                                         </div>
+                                        <div className="stylingName">{coloring.name}</div>
 
 
                                         <div className="ContainerDetails">
-                                            <div className="stylingName">Name: {coloring.name}</div>
                                             {/* <div className="descriptionBox">Description: {coloring.description}</div> */}
-                                            <div>Category: {coloring.category}</div>
+                                            {/* <div>Category: {coloring.category}</div> */}
                                         </div>
                                     </div>
 

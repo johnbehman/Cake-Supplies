@@ -81,13 +81,13 @@ export const BakingSupplies = () => {
 
                                                 <img className="baking-sppl" src={bakingSupplies.imageUrl} alt="AirBrushColors" />
 
-                                                <div className="stylingName">{bakingSupplies.name}</div>
                                                 <Button variant="primary" onClick={() => {
                                                     
                                                     handleSaveButtonClick(bakingSupplies)
                                                 }
                                             }><i class="fa fa-cart-plus" aria-hidden="true"></i>
                                                     Add to</Button>
+                                            <div className="stylingName">{bakingSupplies.name}</div>
                                             </div>
 
 

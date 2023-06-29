@@ -3,7 +3,7 @@
 
 .info-paragraph {
   width: 1000px;
-  margin-top: 20%;
+  margin-top: 25%;
   padding: 90px;
   margin-left: 30%;
   margin-bottom: 30%;
@@ -30,6 +30,9 @@
   color: brown;
   margin-bottom: -18%;
   margin-left: 50%;
+  margin-bottom: -20%;
+  padding-top: 6%;
+  
 
 
 }
@@ -62,7 +65,8 @@
 
 .mainAboutUs {
   background-image: url(../images/img9.avif);
-  padding-bottom: 40%;
+  padding-bottom: 150%;
+  
   background-repeat: no-repeat;
   padding-top: 5%;
   margin-right: 10cm;
