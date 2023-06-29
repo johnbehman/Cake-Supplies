@@ -3,13 +3,15 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: rgb(187, 166, 139);
+
  
 
 }
 .decoratingImage {
-     background-color: rgb(231, 238, 186);
+     background-color: rgb(244, 236, 244);
     border: 2px dotted fuchsia;
-    color: black;
+    color: rgb(153, 48, 48);
     padding: 0.75rem;
     margin: 0.5rem;
     width: 200px;
@@ -21,9 +23,20 @@
 
 .decorating_h1{
     font-family: 'Sansita Swashed', cursive;
-    color: rgb(221, 159, 159);
-    margin-top: 5%;
-    background-color: rgb(22, 22, 19);
+    color: rgb(24, 23, 23);
+    margin-top: 6%;
+    background-color: rgb(205, 173, 154);
     text-align: center;
+
+}
+.stylingName{
+    margin-bottom: 5%;
+    width: 200px;
+    background-color: aliceblue;
+}
+.decoratingImage:hover {
+
+    cursor: pointer;
+    transform: scale(1.50);
 
 }

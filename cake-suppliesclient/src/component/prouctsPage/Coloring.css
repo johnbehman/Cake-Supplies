@@ -7,7 +7,7 @@
     font-family: 'Sansita Swashed', cursive;
     
     color: rgb(5, 3, 27);
-    margin-top: 4%;
+    margin-top: 6%;
     /* background-color: rgb(22, 22, 19); */
     text-align: center;
     background-image: url("https://www.shutterstock.com/image-illustration/unicorn-marble-galaxy-print-patternpastel-260nw-1784173463.jpg");
@@ -24,18 +24,22 @@
 
 }
 .ContainerDetails{
-    background-color: rgb(241, 236, 230);
-    width: 300px;
+    background-color: rgb(230, 226, 221);
+    width: 200px;
 }
 .stylingName{
-    background-color: aquamarine;
     margin-bottom: 5%;
+    width: 200px;
+    padding-left: 10%;
+  
+
 }
 
 .descriptionBox{
     background-color: rgb(223, 205, 205);
 }
 .colors{
+    background-color: rgb(187, 166, 139);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -50,3 +54,9 @@
 .mainLogo{
     background-color: rgb(166, 120, 209);
 } */
+.coloring:hover {
+
+    cursor: pointer;
+    transform: scale(1.50);
+
+}

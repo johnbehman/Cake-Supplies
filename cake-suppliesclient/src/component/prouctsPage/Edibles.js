@@ -91,14 +91,14 @@ const currentOrder = await response.json()
                                                 handleSaveButtonClick(edible)
                                             }
                                             }>
-                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</Button>
+                                                <i className="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</Button>
                                         </div>
 
 
                                         <div className="ContainerDetails">
                                             <div className="stylingName">Name: {edible.name}</div>
                                             {/* <div className="descriptionBox">Description: {edible.description}</div> */}
-                                            <div>Category: {edible.category}</div>
+                                            {/* <div>Category: {edible.category}</div> */}
                                         </div>
                                     </div>
 

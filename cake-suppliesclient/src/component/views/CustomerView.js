@@ -6,7 +6,6 @@ import { BakingSupplies } from "../prouctsPage/BakingSupplies"
 import { Edibles } from "../prouctsPage/Edibles"
 import { AboutUs } from "../aboutUs/AboutUs";
 import { DecoratingTools } from "../prouctsPage/DecoratingTools";
-import logo from "../images/logo.png";
 import { OrderList } from "../orderListPage/OrderList";
 // import { AddOrder } from "../orderListPage/AddOrder";
 // import { EditOrder } from "../orderListPage/EditOrder";
@@ -52,7 +51,7 @@ export const CustomerView = () => {
           {/* <Route path="order/:id" element={<EditOrder />} /> */}
           {/* <Route path="editOrder" element={<EditOrder />} /> */}
           <Route path="searchBar" element={<SearchBar />} />
-          <Route path="itemDetails/:itemId" element={<ItemDetails />} />
+          <Route path="itemDetails" element={<ItemDetails />} />
 
 
 

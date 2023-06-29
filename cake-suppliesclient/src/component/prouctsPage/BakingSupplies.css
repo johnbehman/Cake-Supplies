@@ -12,20 +12,28 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: rgb(187, 166, 139);
 }
 
 .bakingSupplies_h1{
     font-family: 'Sansita Swashed', cursive;
-    color: rgb(221, 159, 159);
-    margin-top: 5%;
-    background-color: rgb(22, 22, 19);
+    color: rgb(13, 10, 10);
+    margin-top: 6%;
+    background-color: rgb(220, 117, 204);
     text-align: center;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed:wght@500&display=swap');
 
 .stylingName{
-    background-color: rgb(208, 215, 182);
     border-style: double;
     border-style:double;
     background-size: 10%;
+    padding-left: 10%;
+
+}
+.baking-sppl:hover {
+
+    cursor: pointer;
+    transform: scale(1.50);
+
 }
